@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { View, StyleSheet } from "react-native";
 
-export default function RegistrationContainer({ children, footer, ...props }) {
+export default function RegistrationContainer({ children, footer, header, ...props }) {
 	return (
 		<View style={styles.container}>
+			<View>{ header }</View>
 			<View style={styles.inputArea} props={props}>
 				<View>{ children }</View>
 				<View>{ footer }</View>
@@ -16,6 +17,7 @@ export default function RegistrationContainer({ children, footer, ...props }) {
 RegistrationContainer.propTypes = {
 	children: PropTypes.node.isRequired,
 	footer: PropTypes.node.isRequired,
+	header: PropTypes.node.isRequired,
 };
 
 const styles = StyleSheet.create({
@@ -24,7 +26,7 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	inputArea: {
-		marginTop: "30%",
+		marginTop: 10,
 		backgroundColor: "rgba(255, 255, 255, 1)",
 		borderTopLeftRadius: 20,
 		borderTopRightRadius: 20,

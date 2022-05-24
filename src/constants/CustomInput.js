@@ -23,8 +23,7 @@ export default function CustomInput({ placeholder, onChange, icon }) {
 CustomInput.propTypes = {
 	placeholder: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
-	leftIcon: PropTypes.string,
-	rightIcon: PropTypes.string,
+	icon: PropTypes.string,
 };
 
 const styles = StyleSheet.create({

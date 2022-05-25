@@ -1,14 +1,21 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { SafeAreaView } from "react-native";
 import CustomInput from "../constants/CustomInput";
 import Footer from "../constants/Footer";
 import RegistrationContainer from "../containers/RegistrationContainer";
-import { Fontisto } from "@expo/vector-icons";
+import { Fontisto, SimpleLineIcons } from "@expo/vector-icons";
 import Header from "../constants/Header";
+//import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function SignupScreen() {
 	return (
 		<RegistrationContainer
+			header={
+				<Header 
+					heading="Tusome"
+					description="Let`s set your account" 
+				/>
+			}
 			footer={
 				<Footer 
 					description="Already have an account?"
@@ -16,23 +23,34 @@ export default function SignupScreen() {
 					onPress={f=>f}
 				/>
 			}
-			header={
-				<Header 
-					heading="Tusome"
-					description="Let`s set your account" 
-				/>
-			}
+
 		>
-			<View>
-				<Text>Hello signup</Text>
-			</View>
-			<View>
-				<CustomInput 
-					icon={<Fontisto name="email" size={24} color="black" />}
-					placeholder="Enter first name"
-					onChange={f=>f}
-				/>
-			</View>
+				<SafeAreaView>
+					<CustomInput 
+						icon={<SimpleLineIcons name="phone" size={20} color="black" />}
+						placeholder="Enter phone"
+						onChange={f=>f}
+					/>
+
+					<CustomInput 
+						icon={<Fontisto name="email" size={20} color="black" />}
+						placeholder="Enter email"
+						onChange={f=>f}
+					/>
+					<CustomInput 
+						icon={<SimpleLineIcons name="lock" size={20} color="black" />}
+						placeholder="Enter password"
+						onChange={f=>f}
+						secureTextEntry={true}
+					/>
+					<CustomInput 
+						icon={<SimpleLineIcons name="lock" size={20} color="black" />}
+						placeholder="Confirm password"
+						onChange={f=>f}
+						secureTextEntry={true}
+					/>
+				</SafeAreaView>
+			
 		</RegistrationContainer>
 	);
 }

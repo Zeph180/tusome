@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 export default function Footer({ description, buttonText, onPress}) {
 	return (
 		<View style={styles.container}>
-			<Text>{ description }</Text>
+			<Text style={styles.description}>{ description } </Text>
 			<TouchableOpacity onPress={ onPress }>
-				<Text>{ buttonText }</Text>
+				<Text style={styles.textBtn}>{ buttonText }</Text>
 			</TouchableOpacity>
 		</View>
 	);
@@ -20,8 +20,13 @@ Footer.propTypes = {
 };
 
 const styles = StyleSheet.create({
-	buttonText: {
-		color: "#7292CF",
-		backgroundColor: "red"
+	container: {
+		flexDirection: "row"
+	},
+	textBtn: {
+		color: "rgba(114, 146, 207, 1)",
+	},
+	description: {
+
 	}
 });

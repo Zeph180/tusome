@@ -4,18 +4,22 @@ import PropTypes from "prop-types";
 
 const Width = Dimensions.get("screen").width;
 
-export default function CustomInput({ placeholder, onChange, icon }) {
+export default function CustomInput({ placeholder, onChange, icon, keyboardType,secureTextEntry }) {
 	return (
-		<View  style={styles.textInput}>
-			{icon}
-			<View>
-				<TextInput 
-					placeholder={placeholder}
-					onChange={onChange}
-					icon={icon}
-				/>
+		<View style={{marginTop: 30}}>
+			<View  style={styles.textInput}>
+				{icon}
+				<View>
+					<TextInput 
+						placeholder={placeholder}
+						onChange={onChange}
+						icon={icon}
+						keyboardType={keyboardType}
+						secureTextEntry={secureTextEntry}
+					/>
+				</View>
+				{icon}
 			</View>
-			{icon}
 		</View>
 	);
 }
@@ -23,7 +27,9 @@ export default function CustomInput({ placeholder, onChange, icon }) {
 CustomInput.propTypes = {
 	placeholder: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
-	icon: PropTypes.string,
+	icon: PropTypes.object,
+	keyboardType: PropTypes.string,
+	secureTextEntry: PropTypes.bool
 };
 
 const styles = StyleSheet.create({
@@ -36,6 +42,5 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 		flexDirection: "row",
 		padding: 10,
-		margin: 10
 	}
 });

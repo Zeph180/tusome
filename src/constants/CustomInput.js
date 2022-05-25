@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const Width = Dimensions.get("screen").width;
 
-export default function CustomInput({ placeholder, onChange, icon, keyboardType,secureTextEntry }) {
+export default function CustomInput({ placeholder, isRequired, onChange, value, icon, keyboardType,secureTextEntry }) {
 	return (
 		<View style={{marginTop: 30}}>
 			<View  style={styles.textInput}>
@@ -16,6 +16,8 @@ export default function CustomInput({ placeholder, onChange, icon, keyboardType,
 						icon={icon}
 						keyboardType={keyboardType}
 						secureTextEntry={secureTextEntry}
+						value={value}
+						isRequired={isRequired}
 					/>
 				</View>
 				{icon}
@@ -29,7 +31,9 @@ CustomInput.propTypes = {
 	onChange: PropTypes.func.isRequired,
 	icon: PropTypes.object,
 	keyboardType: PropTypes.string,
-	secureTextEntry: PropTypes.bool
+	secureTextEntry: PropTypes.bool,
+	value: PropTypes.any,
+	isRequired: PropTypes.bool.isRequired,
 };
 
 const styles = StyleSheet.create({

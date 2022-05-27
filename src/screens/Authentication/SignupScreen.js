@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import { SafeAreaView, StyleSheet, View } from "react-native";
-import CustomInput from "../constants/CustomInput";
-import Footer from "../constants/Footer";
-import RegistrationContainer from "../containers/RegistrationContainer";
+import CustomInput from "../../constants/CustomInput";
+import Footer from "../../constants/Footer";
+import RegistrationContainer from "../../containers/RegistrationContainer";
 import { Fontisto, SimpleLineIcons } from "@expo/vector-icons";
-import Header from "../constants/Header";
-import CustomButton from "../constants/CustomButton";
+import Header from "../../constants/Header";
+import CustomButton from "../../constants/CustomButton";
 import PropTypes from "prop-types";
 //import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
@@ -16,7 +16,7 @@ export default function SignupScreen({ navigation }) {
 	const [confirmPassword, setConfirmPassword] = useState("");
 
 	const handleSignUp = () => {
-		navigation.navigate("Home", );
+		navigation.navigate("FirstRegistration", );
 	};
 	return (
 		<RegistrationContainer

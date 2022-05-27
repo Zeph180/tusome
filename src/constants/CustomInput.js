@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
 		borderWidth: 2,
 		width: Width-30,
 		height: 46,
+		marginLeft: "4%",
 		justifyContent: "space-between",
 		flexDirection: "row",
 		padding: 10,

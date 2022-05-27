@@ -2,8 +2,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import HomeScreen from "../screens/HomeScreen";
 import LoginScreen from "../screens/LoginScreen";
-import SignupScreen from "../screens/SignupScreen";
+import SignupScreen from "../screens/Authentication/SignupScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import FirstRegistrationScreen from "../screens/Authentication/FirstRegistrationScreen";
+import SecondRegistrationScreen from "../screens/Authentication/SecondRegistrationScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +33,20 @@ export default function RootStackNavigator() {
 				})}
 				name="Profile"
 				component={ProfileScreen}
+			/>
+			<Stack.Screen
+				options={() => ({
+					headerShown: false
+				})}
+				name="FirstRegistration"
+				component={FirstRegistrationScreen}
+			/>
+			<Stack.Screen
+				options={() => ({
+					headerShown: false
+				})}
+				name="SecondRegistration"
+				component={SecondRegistrationScreen}
 			/>
 		</Stack.Navigator>
 	);

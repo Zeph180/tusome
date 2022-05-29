@@ -8,8 +8,6 @@ export default function RoundAvatar({ style, imageUrl }) {
 				style={style}
 				source={{
 					uri:imageUrl,
-					width:62,
-					height: 62
 				}}
 			/>
 		</View>

@@ -1,8 +1,8 @@
 import React from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, FlatList } from "react-native";
 import { useGlobalContext } from "../../GlobalContext";
+import Card from "../constants/Card";
 import Header from "../constants/Header";
-import RoundAvatar from "../constants/RoundAvatar";
 import RoundedButton from "../constants/RoundedButton";
 import RegistrationContainer from "../containers/RegistrationContainer";
 
@@ -10,6 +10,40 @@ import RegistrationContainer from "../containers/RegistrationContainer";
 
 export default function HomeScreen({ navigation }) {
 	const { user } = useGlobalContext();
+	const dashBdBtns = [
+		{
+			btnImage: "../../assets/images/avatar.jpg",
+			btnTitle: "My subjects"
+		}, 
+		{
+			btnImage: "../../assets/images/avatar.jpg",
+			btnTitle: "Assignments"
+		},
+		{
+			btnImage: "../../assets/images/avatar.jpg",
+			btnTitle: "Quiz"
+		},
+		{
+			btnImage: "../../assets/images/avatar.jpg",
+			btnTitle: "Announcements"
+		},
+		{
+			btnImage: "../../assets/images/avatar.jpg",
+			btnTitle: "Results"
+		},
+		{
+			btnImage: "../../assets/images/avatar.jpg",
+			btnTitle: "About us"
+		},
+		{
+			btnImage: "../../assets/images/avatar.jpg",
+			btnTitle: "Change password"
+		},
+		{
+			btnImage: "../../assets/images/avatar.jpg",
+			btnTitle: "Logout"
+		}
+	]; 
 
 	return (
 		<RegistrationContainer
@@ -31,6 +65,11 @@ export default function HomeScreen({ navigation }) {
 			}
 		>
 			<Text>Dashboard</Text>
+			<FlatList 
+				data={dashBdBtns}
+				renderItem={({item}) => <Card cardTitle={item.btnTitle} onPress={f => f }/>}
+				numColumns={2}
+			/>
 		</RegistrationContainer>
 	);
 }
@@ -44,7 +83,8 @@ const styles = StyleSheet.create({
 		width: 80,
 		alignItems: "center",
 		borderRadius: 10,
-		marginTop: 5
+		marginTop: 5,
+
 	},
 
 

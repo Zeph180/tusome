@@ -16,24 +16,21 @@ export default function HomeScreen({ navigation }) {
 			header={
 				<Header 
 					heading = {user.firstName}
-					description="Form 6 arts | F19/0191"
+					description={user.class + " " + user.registrationNumber}
+					avatarUrl={user.avatar}
 				>
 					<View style={{justifyContent:"space-between", flexDirection: "row"}}>
 						<RoundedButton
 							styles={styles.yearBtn}
 						>
-							<Text>2019-2022</Text>
+							<Text>{ user. registrationYear + "-" + user.registrationExpires }</Text>
 						</RoundedButton>
-						<RoundAvatar 
-							style={styles.image}
-							imageUrl={user.avatar} />
+					
 					</View>
 				</Header>
 			}
 		>
-			<RoundAvatar 
-				imageUrl={user.avatar}
-			/>
+			<Text>Dashboard</Text>
 		</RegistrationContainer>
 	);
 }
@@ -49,11 +46,6 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		marginTop: 5
 	},
-	image: {
-		backgroundColor: "pink",
-		width: 50,
-		height: 50,
-		borderRadius: 50
-	}
+
 
 });

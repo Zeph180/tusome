@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function RegistrationContainer({ children, footer, header, ...props }) {
@@ -21,8 +21,9 @@ export default function RegistrationContainer({ children, footer, header, ...pro
 
 RegistrationContainer.propTypes = {
 	children: PropTypes.node.isRequired,
-	footer: PropTypes.node.isRequired,
+	footer: PropTypes.node,
 	header: PropTypes.node.isRequired,
+	formHeading: PropTypes.string,
 };
 
 const styles = StyleSheet.create({

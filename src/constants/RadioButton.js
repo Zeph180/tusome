@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from  "react-native";
 import RoundedButton from "./RoundedButton";
 import PropTypes from "prop-types";
 
-export default function RadioButton({ data,onSelect }) {
+export default function RadioButton({ data, onSelect}) {
 	const [userClass, setUserClass] = useState(null);
 
 	const selectHandler = (value) => {
@@ -13,16 +13,18 @@ export default function RadioButton({ data,onSelect }) {
 
 	return (
 		<View>
-			{data.map((item, i) => {
+			{data.map((item, i, ) => {
 				return (
-					<RoundedButton 
-						key={i}
-						onPress={() => selectHandler(item.value)}
-						//styles={styles.containerActive}
-						styles={item.value === userClass ? styles.containerActive : styles.containerNotActive}
-					>
-						<Text style={styles.inactiveBtnText}>{item.value}</Text>
-					</RoundedButton>
+					<View key={i}w>
+						<RoundedButton 
+							
+							onPress={() => selectHandler(item.value)}
+							styles={item.value === userClass ? styles.containerActive : styles.containerNotActive}
+						>
+							<Text style={styles.inactiveBtnText}>{item.value}</Text>
+						</RoundedButton>
+					</View>
+
 				);
 			})}
 			<Text>{userClass}</Text>

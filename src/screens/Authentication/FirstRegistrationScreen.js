@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { View, SafeAreaView, StyleSheet } from "react-native";
+import { View, SafeAreaView, StyleSheet, Text } from "react-native";
 import PropTypes from "prop-types";
 import RegistrationContainer from "../../containers/RegistrationContainer";
 import Header from "../../constants/Header";

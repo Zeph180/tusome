@@ -64,7 +64,6 @@ export default function HomeScreen({ navigation }) {
 				</Header>
 			}
 		>
-			<Text>Dashboard</Text>
 			<FlatList 
 				data={dashBdBtns}
 				renderItem={({item}) => <Card cardTitle={item.btnTitle} onPress={f => f }/>}

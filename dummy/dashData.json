@@ -1,0 +1,32 @@
+[{
+    "btnImage": "../../assets/images/avatar.jpg",
+    "btnTitle": "My subjects"
+}, 
+{
+    "btnImage": "../../assets/images/avatar.jpg",
+    "btnTitle": "Assignments"
+},
+{
+   " btnImage": "../../assets/images/avatar.jpg",
+   " btnTitle": "Quiz"
+},
+{
+    "btnImage": "../../assets/images/avatar.jpg",
+    "btnTitle": "Announcements"
+},
+{
+   " btnImage": "../../assets/images/avatar.jpg",
+   " btnTitle": "Results"
+},
+{
+   " btnImage": "../../assets/images/avatar.jpg",
+    "btnTitle": "About us"
+},
+{
+    "btnImage": "../../assets/images/avatar.jpg",
+   " btnTitle": "Change password"
+},
+{
+    "btnImage": "../../assets/images/avatar.jpg",
+    "btnTitle": "Logout"
+}]

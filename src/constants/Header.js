@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { View, Text, StyleSheet } from "react-native";
 import RoundAvatar from "./RoundAvatar";
 
-export default function Header({ children, heading, description, avatarUrl }) {
+export default function Header({ children, heading, description, avatarUrl, display=false }) {
 	return (
 		<View style={styles.container}>
 			<View style={{flexDirection: "row", justifyContent: "space-between"}}> 
@@ -11,11 +11,12 @@ export default function Header({ children, heading, description, avatarUrl }) {
 					<Text style={styles.heading}>{heading}</Text>
 					<Text style={styles.description}>{description}</Text>
 				</View>
-
-				<RoundAvatar 
-					style={styles.headerAvatar}
-					imageUrl={avatarUrl}
-				/>
+				{display &&
+					<RoundAvatar 
+						style={styles.headerAvatar}
+						imageUrl={avatarUrl}
+					/>
+				}
 			</View>
 
 			<View>

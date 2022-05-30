@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { View, Text, StyleSheet } from "react-native";
 import RoundAvatar from "./RoundAvatar";
 
-export default function Header({ children, heading, description, avatarUrl, display=false }) {
+export default function Header({ children, heading, description, avatarUrl, display=false, handleAvatarPress }) {
 	return (
 		<View style={styles.container}>
 			<View style={{flexDirection: "row", justifyContent: "space-between"}}> 
@@ -15,6 +15,7 @@ export default function Header({ children, heading, description, avatarUrl, disp
 					<RoundAvatar 
 						style={styles.headerAvatar}
 						imageUrl={avatarUrl}
+						handleImagePress={handleAvatarPress}
 					/>
 				}
 			</View>
@@ -33,6 +34,8 @@ Header.propTypes = {
 	description: PropTypes.string.isRequired,
 	avatarUrl: PropTypes.string,
 	styles: PropTypes.object,
+	display: PropTypes.bool,
+	handleAvatarPress: PropTypes.func.isRequired
 };
 
 const styles = StyleSheet.create({

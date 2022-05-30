@@ -11,12 +11,12 @@ export default function Header({ children, heading, description, avatarUrl, disp
 					<Text style={styles.heading}>{heading}</Text>
 					<Text style={styles.description}>{description}</Text>
 				</View>
-
-				<RoundAvatar 
-					style={styles.headerAvatar}
-					imageUrl={avatarUrl}
-					display={display}
-				/>
+				{display &&
+					<RoundAvatar 
+						style={styles.headerAvatar}
+						imageUrl={avatarUrl}
+					/>
+				}
 			</View>
 
 			<View>

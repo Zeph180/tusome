@@ -1,6 +1,5 @@
-import { NavigationContainer } from "@react-navigation/native";
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
 import CustomButton from "../../constants/CustomButton";
 import DropDownBtn from "../../constants/DropDownBtn";
 import Header from "../../constants/Header";

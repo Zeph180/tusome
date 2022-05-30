@@ -8,7 +8,7 @@ const AppContext = createContext();
 export const useGlobalContext = () => useContext(AppContext);
 
 export default function GlobalContext({ children }) {
-	const [user, setUser] = useState(userData);
+	const [user ] = useState(userData);
 	const [dashBdBtn ] = useState(dashData);
     
 	return (

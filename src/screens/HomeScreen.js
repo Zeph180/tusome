@@ -12,7 +12,7 @@ export default function HomeScreen({ navigation }) {
 	const { user, dashBdBtns } = useGlobalContext();
 	const handleAvatar = () => {
 		navigation.navigate("Profile",);
-	}
+	};
 
 	return (
 		<RegistrationContainer
@@ -24,14 +24,12 @@ export default function HomeScreen({ navigation }) {
 					display={true}
 					handleAvatarPress={handleAvatar}
 				>
-					<View style={{justifyContent:"space-between", flexDirection: "row"}}>
-						<RoundedButton
-							styles={styles.yearBtn}
-						>
-							<Text>{ user. registrationYear + "-" + user.registrationExpires }</Text>
-						</RoundedButton>
+					<RoundedButton
+						styles={styles.yearBtn}
+					>
+						<Text>{ user. registrationYear + "-" + user.registrationExpires }</Text>
+					</RoundedButton>
 					
-					</View>
 				</Header>
 			}
 		>

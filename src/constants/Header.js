@@ -35,7 +35,7 @@ Header.propTypes = {
 	avatarUrl: PropTypes.string,
 	styles: PropTypes.object,
 	display: PropTypes.bool,
-	handleAvatarPress: PropTypes.func.isRequired
+	handleAvatarPress: PropTypes.func,
 };
 
 const styles = StyleSheet.create({

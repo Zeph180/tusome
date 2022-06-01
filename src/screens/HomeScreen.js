@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, View, FlatList } from "react-native";
+import { Text, StyleSheet, View, ScrollView } from "react-native";
 import { useGlobalContext } from "../../GlobalContext";
 import Card from "../constants/Card";
 import Header from "../constants/Header";
@@ -15,30 +15,38 @@ export default function HomeScreen({ navigation }) {
 	};
 
 	return (
-		<RegistrationContainer
-			header={
-				<Header 
-					heading = {user.firstName}
-					description={user.class + " " + user.registrationNumber}
-					avatarUrl={user.avatar}
-					display={true}
-					handleAvatarPress={handleAvatar}
-				>
-					<RoundedButton
-						styles={styles.yearBtn}
+		<ScrollView>
+			<RegistrationContainer
+				header={
+					<Header 
+						heading = {user.firstName}
+						description={user.class + " " + user.registrationNumber}
+						avatarUrl={user.avatar}
+						display={true}
+						handleAvatarPress={handleAvatar}
 					>
-						<Text>{ user. registrationYear + "-" + user.registrationExpires }</Text>
-					</RoundedButton>
+						<RoundedButton
+							styles={styles.yearBtn}
+						>
+							<Text>{ user. registrationYear + "-" + user.registrationExpires }</Text>
+						</RoundedButton>
 					
-				</Header>
-			}
-		>
-			<FlatList 
-				data={dashBdBtns}
-				renderItem={({item}) => <Card cardTitle={item.btnTitle} onPress={f=>f}/>}
-				numColumns={2}
-			/>
-		</RegistrationContainer>
+					</Header>
+				}
+			>
+				<View style={styles.cardContainer}>
+					<Card cardTitle="My subjects"/>
+					<Card cardTitle="Assignments"/>
+					<Card cardTitle="Quiz"/>
+					<Card cardTitle="Announcements"/>
+					<Card cardTitle="Results"/>
+					<Card cardTitle="About us"/>
+					<Card cardTitle="Change password"/>
+					<Card cardTitle="Logout"/>
+				</View>
+			</RegistrationContainer>
+		</ScrollView>
+
 	);
 }
 
@@ -52,8 +60,13 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		borderRadius: 10,
 		marginTop: 5,
-
 	},
-
-
+	cardContainer: {
+		flex: 1,
+		flexDirection: "row",
+		flexWrap: "wrap"
+	},
+	cardItem: {
+		width: "50%"
+	}
 });

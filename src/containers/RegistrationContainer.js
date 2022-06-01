@@ -6,16 +6,17 @@ import { LinearGradient } from "expo-linear-gradient";
 export default function RegistrationContainer({ children, footer, header, ...props }) {
 	return (
 		<LinearGradient 
-		//background linear gradient
+			//background linear gradient
 			colors={["rgba(40, 85, 174, 1)", "rgba(114, 146, 207, 1)"]}
 			style={styles.container}
-		>
+		>	
 			<View>{ header }</View>
 			<View style={styles.inputArea} props={props}>
 				<View>{ children }</View>
 				<View>{ footer }</View>
 			</View>
 		</LinearGradient>
+
 	);
 }
 

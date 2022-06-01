@@ -7,10 +7,6 @@
     "btnTitle": "Assignments"
 },
 {
-   " btnImage": "../../assets/images/avatar.jpg",
-   " btnTitle": "Quiz"
-},
-{
     "btnImage": "../../assets/images/avatar.jpg",
     "btnTitle": "Announcements"
 },
@@ -26,6 +22,10 @@
     "btnImage": "../../assets/images/avatar.jpg",
    " btnTitle": "Change password"
 },
+{
+    " btnImage": "../../assets/images/avatar.jpg",
+    " btnTitle": "Quiz"
+ },
 {
     "btnImage": "../../assets/images/avatar.jpg",
     "btnTitle": "Logout"

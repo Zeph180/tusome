@@ -1,14 +1,13 @@
-import React  from "react";
+import React, { useState }  from "react";
 import PropTypes from "prop-types";
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from "react-native";
-import Header from "../constants/Header";
-import RoundedButton from "../constants/RoundedButton";
 import RegistrationContainer from "../containers/RegistrationContainer";
-import { Ionicons, EvilIcons } from "@expo/vector-icons";
+import { EvilIcons } from "@expo/vector-icons";
 import { useGlobalContext } from "../../GlobalContext";
 import ProfileInput from "../constants/ProfileInputs";
+import ProfileHeader from "../constants/ProfileHeader";
 
-const ProfileCard = ({ user }) => {
+const ProfileCard = ({ user, onCameraPress  }) => {
 	return (
 		<View style={styles.profileCardContainer}>
 			<View style={{flexDirection: "row"}}>
@@ -22,7 +21,7 @@ const ProfileCard = ({ user }) => {
 				</View>
 
 			</View>
-			<TouchableOpacity>
+			<TouchableOpacity onPress={onCameraPress}>
 				<EvilIcons 
 					name="camera"
 					size={30}
@@ -33,68 +32,77 @@ const ProfileCard = ({ user }) => {
 	);
 };
 
-export default function ProfileScreen() {
+export default function ProfileScreen({ navigation }) {
 	const { user } = useGlobalContext();
-	console.log(user);
+	const [isLeftBtnClicked, setIsLeftBtnClicked] = useState(false);
+	const [isEditable, setIsEditable] = useState(false);	
 
+	const handleGoBack = () => {
+		navigation.goBack();
+	};
 
 	return (
 		<RegistrationContainer
 			header={
-				<Header 
-					description="My profile"	
-				> 
-					<RoundedButton styles={ styles.yearBtn } >
-						<View style={{ flexDirection: "row", justifyContent: "space-between"}}>
-							<Ionicons 
-								name="md-checkmark-sharp"
-								size={20}
-								color="blue"
-							/>
-							<Text>Done</Text>
-						</View>					
-					</RoundedButton>
-				</Header>
+				<ProfileHeader 
+					screenName="My Profile"
+					btnAction={isLeftBtnClicked ? "Done" : "Edit"}
+					leftBtnPress={handleGoBack}
+					rightBtnPress={() => {
+						setIsLeftBtnClicked(!isLeftBtnClicked);
+						setIsEditable(!isEditable);
+						alert(isEditable);
+					}}
+				/>
 			}
 		>
 			<ScrollView>
 				<ProfileCard 
 					user={user}
+					onCameraPress={f=>f}
 				/>
 				<View style={{ flexWrap: "wrap", flexDirection: "row", flex: 1}}>
 					<View style={styles.narrowInput}>
 						<ProfileInput 
 							label="Students Number"
+							editable={isEditable}
 						/>
 					</View>
 					<View style={styles.narrowInput}>
 						<ProfileInput 
 							label="Academic Year"
+							editable={isEditable}
 						/>
 					</View>
 					<View style={styles.narrowInput}>
 						<ProfileInput 
 							label="Registered Class"
+							editable={isEditable}
 						/>
 					</View>
 						
 					<View style={styles.narrowInput}>
 						<ProfileInput 
 							label="Joining Date"
+							editable={isEditable}
 						/>
 					</View>
 				</View>
 				<ProfileInput 
 					label="Parent Email"
+					editable={isEditable}
 				/>
 				<ProfileInput 
 					label="Mother's Name"
+					editable={isEditable}
 				/>
 				<ProfileInput 
 					label="Father's Name"
+					editable={isEditable}
 				/>
 				<ProfileInput 
 					label="Address"
+					editable={isEditable}
 				/>
 			</ScrollView>
 		</RegistrationContainer>
@@ -103,6 +111,7 @@ export default function ProfileScreen() {
 
 ProfileCard.propTypes ={
 	user: PropTypes.object,
+	onCameraPress: PropTypes.func,
 };
 
 const styles = StyleSheet.create({
@@ -127,7 +136,8 @@ const styles = StyleSheet.create({
 		backgroundColor: "pink",
 		height: 60,
 		width: 60,
-		borderRadius: 10
+		borderRadius: 10,
+		resizeMode: "contain"
 	},
 	userName: {
 		fontWeight: "bold",

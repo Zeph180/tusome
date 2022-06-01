@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { TextInput, View, StyleSheet, Text } from "react-native";
-import { EvilIcons } from "@expo/vector-icons";
 
 
-export default function ProfileInput({ onChange, keyboardType,value, isRequired, label }) {
+export default function ProfileInput({ onChangeText, editable, keyboardType,value, isRequired, label }) {
 	const [isFocused, setIsFocused] = useState(false);
     
+
+
 	const onBlur = () => {
 		setIsFocused(false);
 	};
@@ -18,13 +19,14 @@ export default function ProfileInput({ onChange, keyboardType,value, isRequired,
 	return (
 		<View style={styles.container}>
 			<TextInput 
-				onChangeText={onChange}
+				onChangeText={onChangeText}
 				keyboardType={keyboardType}
 				value={value}
 				isRequired={isRequired}
 				style={styles.textInput}
 				onBlur={onBlur}
 				onFocus={onFocus}
+				editable={editable}
 			/>
 
 			<View style={[
@@ -46,11 +48,13 @@ export default function ProfileInput({ onChange, keyboardType,value, isRequired,
 
 ProfileInput.propTypes = {
 	placeholder: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired,
+	onChangeText: PropTypes.func.isRequired,
 	icon: PropTypes.object,
 	keyboardType: PropTypes.string,
 	secureTextEntry: PropTypes.bool,
 	value: PropTypes.any,
+	isRequired: PropTypes.bool,
+	label: PropTypes.string,
 };
 
 const styles = StyleSheet.create({
@@ -66,9 +70,13 @@ const styles = StyleSheet.create({
 	labelContainer: {
 		position: "absolute",
 		left: 15,
-        marginLeft: 5
+		marginLeft: 5
 	},
 	label: {
 		fontSize: 12,
+	},
+	formReady: {
+		color: "rgba(50, 54, 67, 1)",
+		fontSize: 14,
 	}
 });

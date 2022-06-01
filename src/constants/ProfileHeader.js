@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import PropTypes from "prop-types";
 import { AntDesign } from "@expo/vector-icons";
 import RoundedButton from "./RoundedButton";
 
@@ -22,10 +23,17 @@ export default function ProfileHeader({screenName, btnAction, leftBtnPress, righ
 	);
 }
 
+ProfileHeader.propTypes = {
+	screenName: PropTypes.string,
+	btnAction: PropTypes.string,
+	leftBtnPress: PropTypes.func,
+	rightBtnPress: PropTypes.func,
+};
+
 const styles = StyleSheet.create({
 	container: {
-		marginVertical: 20,
-		marginHorizontal: 10,
+		marginVertical: 10,
+		marginHorizontal: 5,
 		flexDirection: "row",
 		justifyContent: "space-between"
 	},

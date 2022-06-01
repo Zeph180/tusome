@@ -1,11 +1,12 @@
 import React  from "react";
 import PropTypes from "prop-types";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from "react-native";
 import Header from "../constants/Header";
 import RoundedButton from "../constants/RoundedButton";
 import RegistrationContainer from "../containers/RegistrationContainer";
 import { Ionicons, EvilIcons } from "@expo/vector-icons";
 import { useGlobalContext } from "../../GlobalContext";
+import ProfileInput from "../constants/ProfileInputs";
 
 const ProfileCard = ({ user }) => {
 	return (
@@ -56,11 +57,46 @@ export default function ProfileScreen() {
 				</Header>
 			}
 		>
-			<View>
+			<ScrollView>
 				<ProfileCard 
 					user={user}
 				/>
-			</View>
+				<View style={{ flexWrap: "wrap", flexDirection: "row", flex: 1}}>
+					<View style={styles.narrowInput}>
+						<ProfileInput 
+							label="Students Number"
+						/>
+					</View>
+					<View style={styles.narrowInput}>
+						<ProfileInput 
+							label="Academic Year"
+						/>
+					</View>
+					<View style={styles.narrowInput}>
+						<ProfileInput 
+							label="Registered Class"
+						/>
+					</View>
+						
+					<View style={styles.narrowInput}>
+						<ProfileInput 
+							label="Joining Date"
+						/>
+					</View>
+				</View>
+				<ProfileInput 
+					label="Parent Email"
+				/>
+				<ProfileInput 
+					label="Mother's Name"
+				/>
+				<ProfileInput 
+					label="Father's Name"
+				/>
+				<ProfileInput 
+					label="Address"
+				/>
+			</ScrollView>
 		</RegistrationContainer>
 	);  
 }
@@ -84,7 +120,8 @@ const styles = StyleSheet.create({
 		borderColor: "#5278C1",
 		borderRadius: 10,
 		borderWidth: 1,
-		margin: 10
+		margin: 10,
+		marginBottom: 15
 	},
 	userPic: {
 		backgroundColor: "pink",
@@ -95,5 +132,8 @@ const styles = StyleSheet.create({
 	userName: {
 		fontWeight: "bold",
 		fontSize: 20,
+	},
+	narrowInput: {
+		width: "50%"
 	}
 });

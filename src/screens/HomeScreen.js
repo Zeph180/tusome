@@ -9,9 +9,13 @@ import RegistrationContainer from "../containers/RegistrationContainer";
 // import PropTypes from "prop-types";
 
 export default function HomeScreen({ navigation }) {
-	const { user, dashBdBtns } = useGlobalContext();
+	const { user } = useGlobalContext();
 	const handleAvatar = () => {
 		navigation.navigate("Profile",);
+	};
+
+	const handleBooksNav = () => {
+		navigation.navigate("Books")
 	};
 
 	return (
@@ -36,7 +40,7 @@ export default function HomeScreen({ navigation }) {
 			>
 				<View style={styles.cardContainer}>
 					<Card cardTitle="My subjects"/>
-					<Card cardTitle="Assignments"/>
+					<Card cardTitle="E-books" onPress={handleBooksNav}/>
 					<Card cardTitle="Quiz"/>
 					<Card cardTitle="Announcements"/>
 					<Card cardTitle="Results"/>

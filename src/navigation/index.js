@@ -6,6 +6,7 @@ import SignupScreen from "../screens/Authentication/SignupScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import FirstRegistrationScreen from "../screens/Authentication/FirstRegistrationScreen";
 import SecondRegistrationScreen from "../screens/Authentication/SecondRegistrationScreen";
+import BooksScreen from "../screens/BooksScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +48,13 @@ export default function RootStackNavigator() {
 				})}
 				name="SecondRegistration"
 				component={SecondRegistrationScreen}
+			/>
+			<Stack.Screen 
+				options={() => ({
+					headerShown: false
+				})}
+				name="Books"
+				component={BooksScreen}
 			/>
 		</Stack.Navigator>
 	);

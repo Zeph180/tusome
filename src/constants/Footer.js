@@ -21,7 +21,8 @@ Footer.propTypes = {
 
 const styles = StyleSheet.create({
 	container: {
-		flexDirection: "row"
+		flexDirection: "row",
+		marginHorizontal: "20%"
 	},
 	textBtn: {
 		color: "rgba(114, 146, 207, 1)",

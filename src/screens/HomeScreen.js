@@ -22,6 +22,21 @@ export default function HomeScreen({ navigation }) {
 		navigation.navigate("Subjects");
 	};
 
+	const handleDiscussionsNav = () => {
+		navigation.navigate("Discussions");
+	};
+	const handleAboutNav = () => {
+		navigation.navigate("About");
+	};
+	const handleLogout = () => {
+		navigation.navigate("SignIn");
+	};
+	const handleChangePasswordNav = () => {
+		navigation.navigate("Change Password");
+	};
+	const handleQuizNav = () => {
+		navigation.navigate("Quiz");
+	};
 	return (
 		<ScrollView>
 			<RegistrationContainer
@@ -45,13 +60,11 @@ export default function HomeScreen({ navigation }) {
 				<View style={styles.cardContainer}>
 					<Card cardTitle="My subjects" onPress={handleSubjectsNav}/>
 					<Card cardTitle="E-books" onPress={handleBooksNav}/>
-					<Card cardTitle="Quiz"/>
-					<Card cardTitle="Announcements"/>
-					<Card cardTitle="Discussions"/>
-					<Card cardTitle="Results"/>
-					<Card cardTitle="About us"/>
-					<Card cardTitle="Change password"/>
-					<Card cardTitle="Logout"/>
+					<Card cardTitle="Quiz" onPress={handleQuizNav}/>
+					<Card cardTitle="Discussions" onPress={handleDiscussionsNav}/>
+					<Card cardTitle="About us" onPress={handleAboutNav}/>
+					<Card cardTitle="Change password" onPress={handleChangePasswordNav}/>
+					<Card cardTitle="Logout" onPress={handleLogout}/>
 				</View>
 			</RegistrationContainer>
 		</ScrollView>

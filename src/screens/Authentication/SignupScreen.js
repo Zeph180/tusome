@@ -18,6 +18,9 @@ export default function SignupScreen({ navigation }) {
 	const handleSignUp = () => {
 		navigation.navigate("FirstRegistration", );
 	};
+	const handleSignIn = () => {
+		navigation.navigate("SignIn");
+	};
 	return (
 		<RegistrationContainer
 			header={
@@ -30,7 +33,7 @@ export default function SignupScreen({ navigation }) {
 				<Footer 
 					description="Already have an account?"
 					buttonText="Sign in"
-					onPress={f=>f}
+					onPress={handleSignIn}
 				/>
 			}
 
@@ -51,7 +54,6 @@ export default function SignupScreen({ navigation }) {
 					onChange={f=>f}
 					value={email}
 					isRequired={true}
-
 				/>
 				<CustomInput 
 					icon={<SimpleLineIcons name="lock" size={20} color="black" />}

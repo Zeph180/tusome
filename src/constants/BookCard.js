@@ -1,6 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import PropTypes from 'prop-types';
+import { useGlobalContext } from "../../GlobalContext";
 import CustomButton from "./CustomButton";
+
 
 
 // export default function BookCard() {
@@ -68,7 +71,7 @@ import CustomButton from "./CustomButton";
 // 	}
 // });
 
-export default function BookCard({ user }) {
+export default function BookCard({ user, handleReadBtn }) {
 	return (
 		<View style={styles.container}>
 			<View>
@@ -82,13 +85,20 @@ export default function BookCard({ user }) {
 					<Text style={styles.publisher}>1996</Text>
 				</View>
 				<View style={styles.btnView}> 
-					<CustomButton btnText="Read"/>
+					<CustomButton 
+						btnText="Read"
+						onPress={handleReadBtn}
+					/>
 				</View>
 			</View>
 		</View>
 	);
 }
 
+BookCard.propTypes = {
+	handleReadBtn: PropTypes.func,
+	user: PropTypes.object
+}
 
 const styles = StyleSheet.create({
 	container: {

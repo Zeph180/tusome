@@ -1,0 +1,57 @@
+{
+    "history": [
+        {
+            "subjectName": "European History",
+            "bookTitle": "Peacock",
+            "publisher": "Mako Publishers Ltd",
+            "publishYear": "2000",
+            "edition": "second "
+        },
+        {
+            "subjectName": "African Nationalism",
+            "bookTitle": "Modern African Nationalism",
+            "publisher": "Mavin Publishers Ltd",
+            "publishYear": "2000",
+            "edition": "second "
+        },
+        {
+            "subjectName": "History of East Africa",
+            "bookTitle": "The Truth and the Truth",
+            "publisher": "Mako Publishers Ltd",
+            "publishYear": "2000",
+            "edition": "second "
+        }
+    ], 
+    "geography": [
+        {
+           "subjectName": "Geography of East Africa",
+           "bookTitle": "Modern Geography",
+           "publisher": "Mako Publishers Ltd",
+           "publishYear": "2000",
+           "edition": "second "
+        },
+        {
+            "subjectName": "Geography of The World",
+            "bookTitle": "Rest of Geography",
+            "publisher": "Mako Publishers Ltd",
+            "publishYear": "2000",
+            "edition": "second "
+         }       
+    ],
+    "economics":[
+        {
+            "subjectName": "Micro Economics",
+            "bookTitle": "A-Z of economics",
+            "publisher": "Mako Publishers Ltd",
+            "publishYear": "2000",
+            "edition": "second "
+        },
+        {
+            "subjectName": "Macro Economics",
+            "bookTitle": "All about economics",
+            "publisher": "Mako Publishers Ltd",
+            "publishYear": "2000",
+            "edition": "second "
+        }
+    ]
+}

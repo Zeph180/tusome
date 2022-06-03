@@ -66,18 +66,23 @@ export default function ProfileScreen({ navigation }) {
 						<ProfileInput 
 							label="Students Number"
 							editable={isEditable}
+							onChangeText={f=>f}
 						/>
 					</View>
 					<View style={styles.narrowInput}>
 						<ProfileInput 
 							label="Academic Year"
 							editable={isEditable}
+							onChangeText={f=>f}
+
 						/>
 					</View>
 					<View style={styles.narrowInput}>
 						<ProfileInput 
 							label="Registered Class"
 							editable={isEditable}
+							onChangeText={f=>f}
+
 						/>
 					</View>
 						
@@ -85,24 +90,34 @@ export default function ProfileScreen({ navigation }) {
 						<ProfileInput 
 							label="Joining Date"
 							editable={isEditable}
+							onChangeText={f=>f}
+
 						/>
 					</View>
 				</View>
 				<ProfileInput 
 					label="Parent Email"
 					editable={isEditable}
+					onChangeText={f=>f}
+
 				/>
 				<ProfileInput 
 					label="Mother's Name"
 					editable={isEditable}
+					onChangeText={f=>f}
+
 				/>
 				<ProfileInput 
 					label="Father's Name"
 					editable={isEditable}
+					onChangeText={f=>f}
+
 				/>
 				<ProfileInput 
 					label="Address"
 					editable={isEditable}
+					onChangeText={f=>f}
+
 				/>
 			</ScrollView>
 		</RegistrationContainer>

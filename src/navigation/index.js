@@ -1,13 +1,17 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import HomeScreen from "../screens/HomeScreen";
-import LoginScreen from "../screens/LoginScreen";
 import SignupScreen from "../screens/Authentication/SignupScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import FirstRegistrationScreen from "../screens/Authentication/FirstRegistrationScreen";
 import SecondRegistrationScreen from "../screens/Authentication/SecondRegistrationScreen";
 import BooksScreen from "../screens/BooksScreen";
 import SubjectsScreen from "../screens/SubjectsScreen";
+import DiscussionsScreen from "../screens/DiscussionsScreen";
+import AboutUsScreen from "../screens/AboutUsScreen";
+import SignInScreen from "../screens/Authentication/SignInScreen";
+import ChangePasswordScreen from "../screens/Authentication/ChangePasswordScreen";
+import QuizScreen from "../screens/QuizScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -28,7 +32,6 @@ export default function RootStackNavigator() {
 				name="Home"
 				component={HomeScreen}
 			/>
-			<Stack.Screen name="Login" component={LoginScreen} />
 			<Stack.Screen 
 				options={() => ({
 					headerShown: false,
@@ -63,6 +66,38 @@ export default function RootStackNavigator() {
 				})}
 				name="Subjects"
 				component={SubjectsScreen}
+			/>
+			<Stack.Screen 
+				name="Discussions"
+				component={DiscussionsScreen}
+			/>
+			<Stack.Screen 
+				options={() => ({
+					headerShown: false,
+				})}
+				name="About"
+				component={AboutUsScreen}
+			/>
+			<Stack.Screen 
+				options={() => ({
+					headerShown: false,
+				})}
+				name="SignIn"
+				component={SignInScreen}
+			/>
+			<Stack.Screen 
+				options={() =>({
+					headerShown: false
+				})}
+				name="Change Password"
+				component={ChangePasswordScreen}
+			/>
+			<Stack.Screen 
+				options={() =>({
+					headerShown: false
+				})}
+				name="Quiz"
+				component={QuizScreen}
 			/>
 		</Stack.Navigator>
 	);

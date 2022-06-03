@@ -15,7 +15,11 @@ export default function HomeScreen({ navigation }) {
 	};
 
 	const handleBooksNav = () => {
-		navigation.navigate("Books")
+		navigation.navigate("Books");
+	};
+
+	const handleSubjectsNav = () => {
+		navigation.navigate("Subjects");
 	};
 
 	return (
@@ -39,10 +43,11 @@ export default function HomeScreen({ navigation }) {
 				}
 			>
 				<View style={styles.cardContainer}>
-					<Card cardTitle="My subjects"/>
+					<Card cardTitle="My subjects" onPress={handleSubjectsNav}/>
 					<Card cardTitle="E-books" onPress={handleBooksNav}/>
 					<Card cardTitle="Quiz"/>
 					<Card cardTitle="Announcements"/>
+					<Card cardTitle="Discussions"/>
 					<Card cardTitle="Results"/>
 					<Card cardTitle="About us"/>
 					<Card cardTitle="Change password"/>

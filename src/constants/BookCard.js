@@ -71,7 +71,7 @@ import CustomButton from "./CustomButton";
 // 	}
 // });
 
-export default function BookCard({ user, handleReadBtn }) {
+export default function BookCard({ handleReadBtn }) {
 	return (
 		<View style={styles.container}>
 			<View>

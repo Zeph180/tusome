@@ -27,12 +27,13 @@ Card.propTypes = {
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: "rgba(245, 246, 252, 1)",
-		width: 160,
+		width: "40%",
 		height: 132,
 		justifyContent: "center",
 		alignItems: "center",
 		borderRadius: 10,
-        margin: 10
+		marginHorizontal: "5%",
+		marginVertical: 10
 	},
 	cardImage: {
 		width: 64,

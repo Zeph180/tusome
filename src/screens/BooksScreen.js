@@ -7,7 +7,8 @@ import RegistrationContainer from "../containers/RegistrationContainer";
 
 
 export default function BooksScreen({navigation}) {
-	const { user } = useGlobalContext();
+	const { user, books } = useGlobalContext();
+	console.log(books);
 
 	const handleGoBack = () => {
 		navigation.goBack();

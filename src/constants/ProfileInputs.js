@@ -47,7 +47,6 @@ export default function ProfileInput({ onChangeText, editable, keyboardType,valu
 }
 
 ProfileInput.propTypes = {
-	placeholder: PropTypes.string.isRequired,
 	onChangeText: PropTypes.func.isRequired,
 	icon: PropTypes.object,
 	keyboardType: PropTypes.string,

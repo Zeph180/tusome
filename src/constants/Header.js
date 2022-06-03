@@ -3,11 +3,14 @@ import PropTypes from "prop-types";
 import { View, Text, StyleSheet } from "react-native";
 import RoundAvatar from "./RoundAvatar";
 
-export default function Header({ children, heading, description, avatarUrl, display=false, handleAvatarPress }) {
+export default function Header({ children, heading, description, isOnLogin=false, avatarUrl, display=false, handleAvatarPress }) {
 	return (
 		<View style={styles.container}>
 			<View style={{flexDirection: "row", justifyContent: "space-between"}}> 
-				<View>
+				<View style={{
+					alignItems: isOnLogin ? "center" : "flex-start",
+					marginHorizontal: isOnLogin ? "15%" : null
+				}}>
 					<Text style={styles.heading}>{heading}</Text>
 					<Text style={styles.description}>{description}</Text>
 				</View>
@@ -56,6 +59,10 @@ const styles = StyleSheet.create({
 		width: 50,
 		height: 50,
 		borderRadius: 50
-		
+	},
+	loginDec: {
+		justifyContent: "center",
+		alignContent: "center",
+		backgroundColor: "red"
 	}
 });

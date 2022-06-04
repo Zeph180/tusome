@@ -27,6 +27,7 @@ export default function SignupScreen({ navigation }) {
 				<Header 
 					heading="Tusome"
 					description="Let`s set your account" 
+					hasPaperPlane={true}
 				/>
 			}
 			footer={

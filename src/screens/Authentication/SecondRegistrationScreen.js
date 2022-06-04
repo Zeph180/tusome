@@ -36,6 +36,7 @@ export default function SecondRegistrationScreen({navigation}) {
 				<Header h
 					heading="Tusome"
 					description="A little more information"
+					hasPaperPlane={true}
 				/>
 			}
 		>

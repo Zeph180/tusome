@@ -23,7 +23,9 @@ export default function FirstRegistrationScreen({navigation}) {
 				<Header 
 					heading="Tusome"
 					description="Almost done"
-				></Header>
+					hasPaperPlane={true}
+				>
+				</Header>
 			}
 		>
 			<SafeAreaView style={{alignContent: "center"}}>

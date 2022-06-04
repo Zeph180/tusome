@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { View, Text, StyleSheet } from "react-native";
 import RoundAvatar from "./RoundAvatar";
-import PaperPlane from "../../assets/vectors/PaperPlane";
+import PaperPlaneSvg from "../../assets/vectors/PaperPlaneSvg";
 
 export default function Header({ children, heading, description, hasPaperPlane=false, isOnLogin=false, avatarUrl, display=false, handleAvatarPress }) {
 	return (
@@ -15,12 +15,12 @@ export default function Header({ children, heading, description, hasPaperPlane=f
 					<Text style={styles.heading}>{heading}</Text>
 					<Text style={styles.description}>{description}</Text>
 				</View>
-				{hasPaperPlane && 
+				{hasPaperPlane 
+					?
 					<View style={styles.paperPlane}>
-						<PaperPlane width={50} height={50}/>
-					</View>
-				}
-				{display &&
+						<PaperPlaneSvg width={50} height={50}/>
+					</View> 
+					:
 					<RoundAvatar 
 						style={styles.headerAvatar}
 						imageUrl={avatarUrl}

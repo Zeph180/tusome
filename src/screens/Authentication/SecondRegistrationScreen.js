@@ -33,7 +33,7 @@ export default function SecondRegistrationScreen({navigation}) {
 	return (
 		<RegistrationContainer
 			header={
-				<Header h
+				<Header
 					heading="Tusome"
 					description="A little more information"
 					hasPaperPlane={true}

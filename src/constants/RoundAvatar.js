@@ -7,10 +7,9 @@ export default function RoundAvatar({ style, imageUrl, handleImagePress }) {
 		<TouchableOpacity 
 			onPress={handleImagePress}>
 			<Image 
-				onp
 				style={style}
 				source={{
-					uri:imageUrl,
+					uri:imageUrl
 				}}
 			/>
 		</TouchableOpacity>

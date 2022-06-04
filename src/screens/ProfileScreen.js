@@ -12,7 +12,7 @@ const ProfileCard = ({ user, onCameraPress  }) => {
 		<View style={styles.profileCardContainer}>
 			<View style={{flexDirection: "row"}}>
 				<Image 
-					source={user.avatar}
+					source={{ uri: "https://avatars.githubusercontent.com/u/58359456?s=400&u=8c8e74632c32bb57ed547a27e35476d383852f02&v=4"}}
 					style={styles.userPic}
 				/>
 				<View style={{paddingTop: 5, paddingLeft: 10}}>

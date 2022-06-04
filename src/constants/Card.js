@@ -2,15 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import RoundAvatar from "./RoundAvatar";
+import Svg, { Path } from "react-native-svg";
 
 
-export default function Card({ onPress, cardTitle, imageUrl }) {
+export default function Card({ onPress, cardTitle, svg }) {
 	return (
 		<TouchableOpacity onPress={onPress} style={styles.container}>
-			<RoundAvatar 
-				imageUrl={imageUrl}
-				style={styles.cardImage}
-			/>
+			{svg}
 			<Text style={styles.cardTitle}>{cardTitle}</Text>
 		</TouchableOpacity>
 	);

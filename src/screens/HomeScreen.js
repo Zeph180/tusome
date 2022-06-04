@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, StyleSheet, View, ScrollView } from "react-native";
+import LogoutSvg from "../../assets/vectors/LogoutSvg";
 import { useGlobalContext } from "../../GlobalContext";
 import Card from "../constants/Card";
 import Header from "../constants/Header";
@@ -37,6 +38,7 @@ export default function HomeScreen({ navigation }) {
 	const handleQuizNav = () => {
 		navigation.navigate("Quiz");
 	};
+
 	return (
 		<ScrollView>
 			<RegistrationContainer
@@ -44,7 +46,7 @@ export default function HomeScreen({ navigation }) {
 					<Header 
 						heading = {user.firstName}
 						description={user.class + " " + user.registrationNumber}
-						avatarUrl={user.avatar}
+						avatarUrl={"https://avatars.githubusercontent.com/u/58359456?s=400&u=8c8e74632c32bb57ed547a27e35476d383852f02&v=4"}
 						display={true}
 						handleAvatarPress={handleAvatar}
 					>
@@ -64,7 +66,7 @@ export default function HomeScreen({ navigation }) {
 					<Card cardTitle="Discussions" onPress={handleDiscussionsNav}/>
 					<Card cardTitle="About us" onPress={handleAboutNav}/>
 					<Card cardTitle="Change password" onPress={handleChangePasswordNav}/>
-					<Card cardTitle="Logout" onPress={handleLogout}/>
+					<Card cardTitle="Logout" svg={<LogoutSvg width={40} height={40} />} onPress={handleLogout}/>
 				</View>
 			</RegistrationContainer>
 		</ScrollView>

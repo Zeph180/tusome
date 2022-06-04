@@ -6,6 +6,7 @@ import RegistrationContainer from "../../containers/RegistrationContainer";
 import Header from "../../constants/Header";
 import CustomInput from "../../constants/CustomInput";
 import CustomButton from "../../constants/CustomButton";
+import PaperPlane from "../../../assets/vectors/PaperPlane";
 
 export default function FirstRegistrationScreen({navigation}) {
 	const [firstName, setFirstName] = useState("");
@@ -22,7 +23,7 @@ export default function FirstRegistrationScreen({navigation}) {
 				<Header 
 					heading="Tusome"
 					description="Almost done"
-				/>
+				></Header>
 			}
 		>
 			<SafeAreaView style={{alignContent: "center"}}>

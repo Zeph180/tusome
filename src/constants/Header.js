@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { View, Text, StyleSheet } from "react-native";
 import RoundAvatar from "./RoundAvatar";
+import PaperPlaneSvg from "../../assets/vectors/PaperPlaneSvg";
 
-export default function Header({ children, heading, description, isOnLogin=false, avatarUrl, display=false, handleAvatarPress }) {
+export default function Header({ children, heading, description, hasPaperPlane=false, isOnLogin=false, avatarUrl, display=false, handleAvatarPress }) {
 	return (
 		<View style={styles.container}>
 			<View style={{flexDirection: "row", justifyContent: "space-between"}}> 
@@ -14,7 +15,12 @@ export default function Header({ children, heading, description, isOnLogin=false
 					<Text style={styles.heading}>{heading}</Text>
 					<Text style={styles.description}>{description}</Text>
 				</View>
-				{display &&
+				{hasPaperPlane 
+					?
+					<View style={styles.paperPlane}>
+						<PaperPlaneSvg width={50} height={50}/>
+					</View> 
+					:
 					<RoundAvatar 
 						style={styles.headerAvatar}
 						imageUrl={avatarUrl}
@@ -39,12 +45,15 @@ Header.propTypes = {
 	styles: PropTypes.object,
 	display: PropTypes.bool,
 	handleAvatarPress: PropTypes.func,
+	hasPaperPlane: PropTypes.bool,
+	isOnLogin: PropTypes.bool,
+
 };
 
 const styles = StyleSheet.create({
 	container: {
 		//marginLeft: 20,
-		margin: 10
+		margin: 10,
 	},
 	heading: {
 		fontSize: 34,
@@ -64,5 +73,10 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		alignContent: "center",
 		backgroundColor: "red"
+	},
+	paperPlane: {
+		height: 30,
+		marginTop: "8%",
+		marginRight: "5%"
 	}
 });

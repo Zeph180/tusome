@@ -1,8 +1,9 @@
 import React from "react";
+import { View } from "react";
 import Svg, { Path } from "react-native-svg";
 
 
-export default function PaperPlane({ width, fill, height}) {
+export default function PaperPlaneSvg({ width, fill, height}) {
 	return (
 		<Svg width={width} height={height} fill={fill}>
 			<Path fillRule="evenodd" clipRule="evenodd" d="M42.2612 25.6097C42.2612 25.6097 28.3362 27.6507 17.0663 23.6587C16.7506 23.5452 16.5779 23.2056 16.6722 22.8837C16.8582 22.2437 17.1722 21.1177 17.4802 19.7837C18.2002 16.6687 42.2612 25.6097 42.2612 25.6097Z" fill="#A9CBD3"/>

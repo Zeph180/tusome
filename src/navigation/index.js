@@ -68,6 +68,9 @@ export default function RootStackNavigator() {
 				component={SubjectsScreen}
 			/>
 			<Stack.Screen 
+			options={()=>({
+				headerShown: false
+			})}
 				name="Discussions"
 				component={DiscussionsScreen}
 			/>

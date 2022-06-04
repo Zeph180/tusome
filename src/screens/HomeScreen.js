@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, StyleSheet, View, ScrollView } from "react-native";
-import AboutUsSvg from "../../assets/vectors/AboutusSvg";
+import AboutUsSvg from "../../assets/vectors/AboutUsSvg";
 import BooksSvg from "../../assets/vectors/BooksSvg";
 import DiscussionSvg from "../../assets/vectors/DiscussionSvg";
 import LogoutSvg from "../../assets/vectors/LogoutSvg";
@@ -54,6 +54,7 @@ export default function HomeScreen({ navigation }) {
 						avatarUrl={"https://avatars.githubusercontent.com/u/58359456?s=400&u=8c8e74632c32bb57ed547a27e35476d383852f02&v=4"}
 						display={true}
 						handleAvatarPress={handleAvatar}
+						hasAvatar={true}
 					>
 						<RoundedButton
 							styles={styles.yearBtn}

@@ -1,7 +1,7 @@
 import React from "react";
 import Svg, { Path } from "react-native-svg";
 
-export default function Quiz({ height, width}) {
+export default function QuizSvg({ height, width}) {
 	return (
 		<Svg width={width} height={height}>
 			<Path fillRule="evenodd" clipRule="evenodd" d="M23.2222 0.5V6.36301H20.9082C19.63 6.36301 18.5938 7.39923 18.5938 8.67749C18.5938 9.95575 19.63 10.992 20.9082 10.992H23.2222V16.778H30.1652V13.307C30.1665 12.6689 30.6841 12.1523 31.3223 12.1523C31.9603 12.1523 32.478 12.6689 32.4792 13.307V16.779H39.5002V0.5H23.2222Z" fill="#345FB4"/>

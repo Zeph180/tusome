@@ -1,6 +1,11 @@
 import React from "react";
 import { Text, StyleSheet, View, ScrollView } from "react-native";
+import AboutUsSvg from "../../assets/vectors/AboutusSvg";
+import BooksSvg from "../../assets/vectors/BooksSvg";
+import DiscussionSvg from "../../assets/vectors/DiscussionSvg";
 import LogoutSvg from "../../assets/vectors/LogoutSvg";
+import PasswordSvg from "../../assets/vectors/PasswordSvg";
+import QuizSvg from "../../assets/vectors/QuizSvg";
 import { useGlobalContext } from "../../GlobalContext";
 import Card from "../constants/Card";
 import Header from "../constants/Header";
@@ -60,12 +65,12 @@ export default function HomeScreen({ navigation }) {
 				}
 			>
 				<View style={styles.cardContainer}>
-					<Card cardTitle="My subjects" onPress={handleSubjectsNav}/>
-					<Card cardTitle="E-books" onPress={handleBooksNav}/>
-					<Card cardTitle="Quiz" onPress={handleQuizNav}/>
-					<Card cardTitle="Discussions" onPress={handleDiscussionsNav}/>
-					<Card cardTitle="About us" onPress={handleAboutNav}/>
-					<Card cardTitle="Change password" onPress={handleChangePasswordNav}/>
+					<Card svg={<QuizSvg width={50} height={50}/>} cardTitle="My subjects" onPress={handleSubjectsNav}/>
+					<Card svg={<BooksSvg width={50} height={50}/>} cardTitle="E-books" onPress={handleBooksNav}/>
+					<Card svg={<QuizSvg width={50} height={50}/>} cardTitle="Quiz" onPress={handleQuizNav}/>
+					<Card svg={<DiscussionSvg width={50} height={50}/>} cardTitle="Discussions" onPress={handleDiscussionsNav}/>
+					<Card svg={<AboutUsSvg width={50} height={50}/>} cardTitle="About us" onPress={handleAboutNav}/>
+					<Card svg={<PasswordSvg width={50} height={50}/>} cardTitle="Change password" onPress={handleChangePasswordNav}/>
 					<Card cardTitle="Logout" svg={<LogoutSvg width={40} height={40} />} onPress={handleLogout}/>
 				</View>
 			</RegistrationContainer>

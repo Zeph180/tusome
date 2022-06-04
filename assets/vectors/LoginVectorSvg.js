@@ -1,7 +1,7 @@
 import React from "react";
 import Svg, { Path, Circle, Ellipse, G } from "react-native-svg";
 
-export default function LoginVector({ width, height }) {
+export default function LoginSvg({ width, height }) {
 	return (
 		<Svg width={width} height={height} viewBox="0 0 295 74" fill="none"  xmlns="http://www.w3.org/2000/svg">
 			<Ellipse cx="271.121" cy="30.9489" rx="13.5615" ry="13.5615" fill="#7A60A6"/>

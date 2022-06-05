@@ -14,7 +14,7 @@ export default function DiscussionsScreen(params) {
 				/>
 			}
 		>
-
+			<Text style={{ fontSize: 40, fontWeight: "bold"}}>COMING SOON</Text>
 		</RegistrationContainer>
 	);
 }

@@ -86,7 +86,9 @@ const styles = StyleSheet.create({
 		backgroundColor: "pink",
 		width: 50,
 		height: 50,
-		borderRadius: 50
+		borderRadius: 50,
+		borderWidth: 1,
+		borderColor: "teal"
 	},
 	loginDec: {
 		justifyContent: "center",

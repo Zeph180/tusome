@@ -15,7 +15,7 @@ export default function SignInScreen({ navigation }) {
 		navigation.navigate("Home");
 	};
 
-    const handleSignup = () => {
+	const handleSignup = () => {
 		navigation.navigate("Signup");
 	};
 
@@ -25,6 +25,8 @@ export default function SignInScreen({ navigation }) {
 				<Header 
 					heading="Welcome Back"
 					description="Sign in to continue"
+					hasPaperPlane={false}
+					showLoginSvg={true}
 					isOnLogin={true}
 				/>
 			}   

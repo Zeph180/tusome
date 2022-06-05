@@ -14,6 +14,10 @@ export default function BooksScreen({navigation}) {
 		navigation.goBack();
 	};
 
+	const handleReadBtn = () =>{
+		navigation.navigate("Book Reader");
+	};
+
 	return (
 		<RegistrationContainer
 			header={
@@ -24,7 +28,7 @@ export default function BooksScreen({navigation}) {
 			}
 		>
 			<ScrollView>
-				<BookCard user={user}/>
+				<BookCard user={user} handleReadBtn={handleReadBtn}/>
 				<BookCard user={user}/>
 				<BookCard user={user}/>
 				<BookCard user={user}/>

@@ -65,6 +65,7 @@ Header.propTypes = {
 	handleAvatarPress: PropTypes.func,
 	hasPaperPlane: PropTypes.bool,
 	isOnLogin: PropTypes.bool,
+	hasAvatar:PropTypes.bool,
 
 };
 

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { View, SafeAreaView, StyleSheet, Text } from "react-native";
 import PropTypes from "prop-types";
 import RegistrationContainer from "../../containers/RegistrationContainer";
+import SchoolToolsSvg from "../../../assets/vectors/SchoolToolsSvg";
 import Header from "../../constants/Header";
 import CustomInput from "../../constants/CustomInput";
 import CustomButton from "../../constants/CustomButton";
@@ -52,6 +53,9 @@ export default function FirstRegistrationScreen({navigation}) {
 					btnText="Next"
 					onPress={handleNext}
 				/>
+			</View>
+			<View style={{marginTop: "17%"}}>
+				<SchoolToolsSvg />
 			</View>
 		</RegistrationContainer>
 	);

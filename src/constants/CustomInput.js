@@ -6,9 +6,9 @@ const Width = Dimensions.get("screen").width;
 
 export default function CustomInput({ placeholder, isRequired, onChange, value, icon, keyboardType,secureTextEntry }) {
 	return (
-		<View style={{marginTop: 30}}>
+		<View style={{marginTop: 30, flexWrap:"wrap", paddingRight: 10}}>
 			<View  style={styles.textInput}>
-				{icon}
+				<View style={{ paddingRight: 10 }}>{icon}</View>
 				<View>
 					<TextInput 
 						placeholder={placeholder}
@@ -20,7 +20,6 @@ export default function CustomInput({ placeholder, isRequired, onChange, value, 
 						isRequired={isRequired}
 					/>
 				</View>
-				{icon}
 			</View>
 		</View>
 	);
@@ -44,8 +43,7 @@ const styles = StyleSheet.create({
 		width: Width-30,
 		height: 46,
 		marginLeft: "4%",
-		justifyContent: "space-between",
 		flexDirection: "row",
 		padding: 10,
-	}
+	},
 });

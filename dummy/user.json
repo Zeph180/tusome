@@ -33,5 +33,64 @@
         "district": "Kampala",
         "division": "Rubaga",
         "town": "Lungujja"
-    }
+    },
+    "books" : [
+        {
+            "subjectName": "European History",
+            "bookTitle": "Peacock",
+            "publisher": "Mako Publishers Ltd",
+            "publishYear": "2000",
+            "edition": "second ",
+            "author": "Marly Skinner"
+        },
+        {
+            "subjectName": "African Nationalism",
+            "bookTitle": "Modern African Nationalism",
+            "publisher": "Mavin Publishers Ltd",
+            "publishYear": "2000",
+            "edition": "second ",
+            "author": "Marly Skinner"
+        },
+        {
+            "subjectName": "History of East Africa",
+            "bookTitle": "The Truth and the Truth",
+            "publisher": "Mako Publishers Ltd",
+            "publishYear": "2000",
+            "edition": "second ",
+            "author": "Marly Skinner"
+        },
+        {
+            "subjectName": "Geography of East Africa",
+            "bookTitle": "Modern Geography",
+            "publisher": "Mako Publishers Ltd",
+            "publishYear": "2000",
+            "edition": "second ",
+            "author": "Marly Skinner"
+         },
+         {
+             "subjectName": "Geography of The World",
+             "bookTitle": "Rest of Geography",
+             "publisher": "Mako Publishers Ltd",
+             "publishYear": "2000",
+             "edition": "second ",
+             "author": "Marly Skinner"
+          },
+          {
+            "subjectName": "Micro Economics",
+            "bookTitle": "A-Z of economics",
+            "publisher": "Mako Publishers Ltd",
+            "publishYear": "2000",
+            "edition": "second ",
+            "author": "Marly Skinner"
+        },
+        {
+            "subjectName": "Macro Economics",
+            "bookTitle": "All about economics",
+            "publisher": "Mako Publishers Ltd",
+            "publishYear": "2000",
+            "edition": "second ",
+            "author": "Marly Skinner"
+        }
+
+    ]
 }

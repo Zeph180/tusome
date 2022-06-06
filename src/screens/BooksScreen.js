@@ -1,15 +1,15 @@
 import React from "react";
 import { ScrollView } from "react-native";
 import { useGlobalContext } from "../../GlobalContext";
-import BookCard from "../constants/BookCard";
+import BooksList from "../constants/BookCard";
 import ProfileHeader from "../constants/ProfileHeader";
 import RegistrationContainer from "../containers/RegistrationContainer";
 
 
 export default function BooksScreen({navigation}) {
-	const { user, books } = useGlobalContext();
-	console.log(books);
-
+	const { user } = useGlobalContext();
+	const books = user.books;
+	
 	const handleGoBack = () => {
 		navigation.goBack();
 	};
@@ -28,10 +28,7 @@ export default function BooksScreen({navigation}) {
 			}
 		>
 			<ScrollView>
-				<BookCard user={user} handleReadBtn={handleReadBtn}/>
-				<BookCard user={user}/>
-				<BookCard user={user}/>
-				<BookCard user={user}/>
+				<BooksList books={books}/>
 			</ScrollView>
 		</RegistrationContainer>
 	);

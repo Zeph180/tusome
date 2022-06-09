@@ -97,6 +97,6 @@ const styles = StyleSheet.create({
 		flexWrap: "wrap"
 	},
 	cardItem: {
-		width: "50%"
+		width: "50%",
 	}
 });

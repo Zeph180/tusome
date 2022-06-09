@@ -18,7 +18,7 @@ const Stack = createNativeStackNavigator();
 
 export default function RootStackNavigator() {
 	return (
-		<Stack.Navigator>
+		<Stack.Navigator initialRouteName="Home">
 			<Stack.Screen
 				options={() => ({
 					headerShown: false,
@@ -84,7 +84,7 @@ export default function RootStackNavigator() {
 			/>
 			<Stack.Screen 
 				options={() => ({
-					headerShown: false,
+					headerShown: false
 				})}
 				name="SignIn"
 				component={SignInScreen}

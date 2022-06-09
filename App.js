@@ -1,20 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo, useContext } from "react";
 import { StatusBar } from "react-native";
+import * as SecureStore from "expo-secure-store";
 import { NavigationContainer } from "@react-navigation/native";
 import RootStackNavigator from "./src/navigation/index";
 import AuthenticationNavigator from "./src/navigation/Authentication";
-import GlobalContext from "./GlobalContext";
+import GlobalContext, { useGlobalContext } from "./GlobalContext";
 
 const Navigation = () => {
-	const [token, setToken] = useState(false);
+	const { state, dispatch } = useGlobalContext();
+
+	useEffect(() => {
+		//fetching token from storage
+		const bootsAsync = async ()=> {
+			let userToken;
+			try {
+				userToken = await SecureStore.getItemAsync("userToken");
+				console.log("token:",userToken);
+			} catch {
+				//Restoring token failed
+			}
+			dispatch({ type: "RESTORE_TOKEN", token: userToken});
+		};
+		bootsAsync();
+
+	}, []);
+
 	return (
 		<>
 			{
-				token == true ? <RootStackNavigator /> : <AuthenticationNavigator />
+				state.userToken == null ? <RootStackNavigator /> : <AuthenticationNavigator />
 			}
 		</>
 	);
 };
+
+
 
 export default function App() {
 	return (

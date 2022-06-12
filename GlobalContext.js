@@ -36,7 +36,7 @@ export default function GlobalContext({ children }) {
 	const [state, dispatch] = useReducer( authReducer, {
 		isLoading: true,
 		isSignOut: false,
-		userToken: true
+		userToken: null
 	}
 	);
 

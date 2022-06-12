@@ -12,22 +12,22 @@ export default function RadioButton({ data, onSelect}) {
 	};
 
 	return (
-		<View>
-			{data.map((item, i, ) => {
+		<View style={styles.container}>
+			{data.map((item, i ) => {
 				return (
-					<View key={i}w>
-						<RoundedButton 
-							
-							onPress={() => selectHandler(item.value)}
-							styles={item.value === userClass ? styles.containerActive : styles.containerNotActive}
-						>
-							<Text style={styles.inactiveBtnText}>{item.value}</Text>
-						</RoundedButton>
-					</View>
+					<RoundedButton
+						key={i}
+						onPress={() => selectHandler(item.value)}
+						styles={item.value === userClass ? 
+							styles.containerActive :
+							styles.containerNotActive
+						}
+					>
+						<Text style={styles.inactiveBtnText}>{item.value}</Text>
+					</RoundedButton>
 
 				);
 			})}
-			<Text>{userClass}</Text>
 		</View>
 	);
 }
@@ -38,13 +38,20 @@ RadioButton.propTypes = ({
 });
 
 const styles = StyleSheet.create({
+	container: {
+		flexDirection: "row",
+		flexWrap: "wrap",
+		justifyContent: "space-around",
+		marginBottom: 20
+	},
 	containerActive: {
 		backgroundColor: "rgba(86, 204, 242, 1)",
 		width: 67,
 		borderRadius: 10,
 		alignItems: "center",
 		justifyContent: "center",
-		borderWidth: 1
+		borderWidth: 1,
+		margin: 5
 	},
 	activeBtnText: {
 		color: "white",
@@ -57,7 +64,8 @@ const styles = StyleSheet.create({
 		borderRadius: 5,
 		alignItems: "center",
 		justifyContent: "center",
-		borderWidth: 1
+		borderWidth: 1,
+		margin: 5
 	},
 	inactiveBtnText: {
 		fontSize: 15,

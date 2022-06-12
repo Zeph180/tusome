@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import CustomButton from "../../constants/CustomButton";
 import DropDownBtn from "../../constants/DropDownBtn";
 import Header from "../../constants/Header";
@@ -7,9 +7,9 @@ import RadioButton from "../../constants/RadioButton";
 import RegistrationContainer from "../../containers/RegistrationContainer";
 
 export default function SecondRegistrationScreen({navigation}) {
-	const [options, setOptions] = useState(null);
-	const [showComponent, setShowComponent] = useState(false);
-	const [grade, setGrade] = useState();
+	const [isActive, setIsActive] = useState(false);
+	const [showClasses, setShowClasses] = useState();
+	
 	//user class is gotten from options
 
 	const data = [
@@ -19,6 +19,14 @@ export default function SecondRegistrationScreen({navigation}) {
 		{value: "P4"},
 		{value: "P5"}
 	];
+
+	const datam = [
+		{value: "S1"},
+		{value: "S2"},
+		{value: "S3"},
+		{value: "S4"},
+	];
+
 
 	const grades = [
 		{value: "Primary"},
@@ -44,26 +52,42 @@ export default function SecondRegistrationScreen({navigation}) {
 				<View style={{alignItems: "center",}}>
 					<Text style={{fontSize: 20 }}> Select your class </Text>		
 				</View>
-				<DropDownBtn 
-					buttonText="Primary"
-					onPress={() => {
-						setShowComponent(!showComponent);
-					}}
-				/>
-				{
-					showComponent ? (		
-						<View>
-							<RadioButton 
-								data={data}
-								onSelect={(value) => setOptions(value)}
-							/>
-						</View>) : null
-				}
+				
+				<View>
+					<DropDownBtn 
+						buttonText="Primary"
+						data={data}
+						isActive={isActive}
+						onPress={()=>{
+							setIsActive(!isActive);
+						}}
+					/>
+
+					<DropDownBtn
+						buttonText="O-Level"
+						data={datam}
+						isActive={isActive}
+						onPress={()=>{
+							setIsActive(!isActive);
+						}}
+					/>
+
+					<DropDownBtn 
+						buttonText="A-Level"
+						data={data}
+						isActive={isActive}
+						onPress={()=>{
+							setIsActive(!isActive);
+						}}
+					/>
+				</View>
 			</View>
-			<CustomButton 
-				btnText="Submit"
-				onPress={handleNextPress}
-			/>
+			<View style= {{alignItems: "center", marginTop: 20}}>
+				<CustomButton 
+					btnText="Submit"
+					onPress={handleNextPress}
+				/>
+			</View>
 		</RegistrationContainer>
 	);
 }

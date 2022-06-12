@@ -40,7 +40,7 @@ export default function App() {
 	return (
 		<NavigationContainer>
 			<GlobalContext>
-				<StatusBar />
+				<StatusBar backgroundColor="rgba(40, 85, 174, 1)"/>
 				<Navigation />
 			</GlobalContext>
 		</NavigationContainer>

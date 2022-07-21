@@ -8,8 +8,10 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",
+    "dotenv": "^16.0.1",
     "eslint": "^8.16.0",
     "expo": "^45.0.4",
     "expo-dev-client": "~0.9.6",

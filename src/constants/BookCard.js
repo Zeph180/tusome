@@ -80,10 +80,10 @@ const styles = StyleSheet.create({
 	},
 	subjectContainer: {
 		backgroundColor: "rgba(230, 239, 255, 1)",
-		width: 148,
 		height: 30,
 		borderRadius: 10,
 		justifyContent: "center",
+		marginRight: 10,
 	},
 	bookName: {
 		fontWeight: "bold", 

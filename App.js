@@ -5,6 +5,17 @@ import { NavigationContainer } from "@react-navigation/native";
 import RootStackNavigator from "./src/navigation/index";
 import AuthenticationNavigator from "./src/navigation/Authentication";
 import GlobalContext, { useGlobalContext } from "./GlobalContext";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+// import "dotenv/config";
+
+const uri = process.env.API_URI;
+const cache = new InMemoryCache();
+
+const client = new ApolloClient({
+	uri,
+	cache,
+	connectToDevTools: true
+});
 
 const Navigation = () => {
 	const { state, dispatch } = useGlobalContext();
@@ -38,12 +49,14 @@ const Navigation = () => {
 
 export default function App() {
 	return (
-		<NavigationContainer>
-			<GlobalContext>
-				<StatusBar backgroundColor="rgba(40, 85, 174, 1)"/>
-				<Navigation />
-			</GlobalContext>
-		</NavigationContainer>
+		<ApolloProvider client={client}>
+			<NavigationContainer>
+				<GlobalContext>
+					<StatusBar backgroundColor="rgba(40, 85, 174, 1)"/>
+					<Navigation />
+				</GlobalContext>
+			</NavigationContainer>
+		</ApolloProvider>
 	);
 }
 

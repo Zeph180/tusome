@@ -33,8 +33,8 @@ export default function BooksList({ books }) {
 		<View>
 			{
 				books.map((book, i) => <BookCard 
-					subjectName={book.subjectName}
-					bookTitle={book.bookTitle}
+					subjectName={book.subject}
+					bookTitle={book.title}
 					publisher={book.publisher}
 					edition={book.edition}
 					author={book.author}
@@ -91,7 +91,8 @@ const styles = StyleSheet.create({
 	},
 	publisherContainer: {
 		flexDirection: "row",
-		justifyContent: "space-between"
+		justifyContent: "space-between",
+		marginRight: 10
 	},
 	btnView: {
 		alignItems: "center",

@@ -6,20 +6,19 @@ import RootStackNavigator from "./src/navigation/index";
 import AuthenticationNavigator from "./src/navigation/Authentication";
 import GlobalContext, { useGlobalContext } from "./GlobalContext";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-// import "dotenv/config";
-
-const uri = process.env.API_URI;
+// import {API_URI} from "react-native-dotenv";
+// exp://192.168.43.176:19000
+const uri = "http://192.168.43.176:4000/api";
 const cache = new InMemoryCache();
 
 const client = new ApolloClient({
 	uri,
 	cache,
-	connectToDevTools: true
+	connectToDevTools: true,
 });
 
 const Navigation = () => {
 	const { state, dispatch } = useGlobalContext();
-
 	useEffect(() => {
 		//fetching token from storage
 		const bootsAsync = async ()=> {

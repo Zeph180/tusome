@@ -26,19 +26,19 @@ const Navigation = () => {
 			try {
 				//checking for token from user device storage
 				userToken = await SecureStore.getItemAsync("userToken");
+				console.log("2: ",userToken);
 			} catch {
 				//Restoring token failed
 			}
 			dispatch({ type: "RESTORE_TOKEN", token: userToken});
 		};
-		bootsAsync();
-
+		//bootsAsync();
 	}, []);
-
+	console.log(state.userToken);
 	return (
 		<>
 			{
-				state.userToken == null ? <RootStackNavigator /> : <AuthenticationNavigator />
+				state.userToken === null ? <AuthenticationNavigator /> : <RootStackNavigator />
 			}
 		</>
 	);

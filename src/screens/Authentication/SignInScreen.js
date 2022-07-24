@@ -10,38 +10,35 @@ import GlobalContext, { useGlobalContext } from "../../../GlobalContext";
 import { gql, useMutation } from "@apollo/client";
 
 const SIGNIN_USER = gql`
-	mutation signin($email: String!, $password: String!) {
+	mutation signin($email: String!, $password: String!){
  	 signIn(email: $email, password: $password)
 	}
 `;
 
+
 export default function SignInScreen({ navigation }) {
-	//const { authContext } = useGlobalContext();
+	const { authContext } = useGlobalContext();
 	const [email, setEmail] = useState();
 	const [password, setPassword] = useState();
 
-	const [signin, { loading, error }] = useMutation(SIGNIN_USER, {
+	const [signin, {loading, error }] = useMutation(SIGNIN_USER, {
 		variables: {
 			email: email,
-			password: password,
+			password: password
 		},
 		onCompleted: data => {
-			console.log("fro Signin: ",data);
+			alert(data);
+			console.log(data);
 		}
 	});
 	//const signIn = authContext.signIn;
+	if (loading) {alert("loading user");}
 
-	if (loading) {
-		alert("Loading user account");
-	}
 
-	if (error) {
-		alert("error");
-		console.error("from signin: ",error);
-	}
 	const handleSignIn = () => {
 		//signIn({ email, password});
 		signin();
+		alert(email, password);
 	};
 
 	const handleSignup = () => {

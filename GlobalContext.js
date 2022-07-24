@@ -2,8 +2,6 @@ import React, { createContext, useState, useContext, useMemo, useReducer } from 
 import userData from "./dummy/user.json";
 import PropTypes from "prop-types";
 
-const AppContext = createContext();
-
 const authReducer = (prevState, action) => {
 	switch (action.type) {
 	case "RESTORE_TOKEN":
@@ -28,13 +26,14 @@ const authReducer = (prevState, action) => {
 	
 };
 
+const AppContext = createContext();
 export const useGlobalContext = () => useContext(AppContext);
 
 export default function GlobalContext({ children }) {
 	const [user, setUser] = useState(userData);
 
 	const [state, dispatch] = useReducer( authReducer, {
-		isLoading: true,
+		isLoading: false,
 		isSignOut: false,
 		userToken: null
 	}

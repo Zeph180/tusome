@@ -33,8 +33,8 @@ export default function BooksList({ books }) {
 		<View>
 			{
 				books.map((book, i) => <BookCard 
-					subjectName={book.subjectName}
-					bookTitle={book.bookTitle}
+					subjectName={book.subject}
+					bookTitle={book.title}
 					publisher={book.publisher}
 					edition={book.edition}
 					author={book.author}
@@ -80,10 +80,10 @@ const styles = StyleSheet.create({
 	},
 	subjectContainer: {
 		backgroundColor: "rgba(230, 239, 255, 1)",
-		width: 148,
 		height: 30,
 		borderRadius: 10,
 		justifyContent: "center",
+		marginRight: 10,
 	},
 	bookName: {
 		fontWeight: "bold", 
@@ -91,7 +91,8 @@ const styles = StyleSheet.create({
 	},
 	publisherContainer: {
 		flexDirection: "row",
-		justifyContent: "space-between"
+		justifyContent: "space-between",
+		marginRight: 10
 	},
 	btnView: {
 		alignItems: "center",

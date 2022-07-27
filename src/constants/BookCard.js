@@ -2,8 +2,10 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
 import CustomButton from "./CustomButton";
+import { useNavigation } from "@react-navigation/native";
 
-export function BookCard({ handleReadBtn, subjectName, bookTitle, publisher, edition, author }) {
+export function BookCard({ subjectName, bookTitle, publisher, edition, author }) {
+	const navigation = useNavigation();
 	return (
 		<View style={styles.container}>
 			<View style={{ marginLeft: 10 }}>
@@ -19,7 +21,7 @@ export function BookCard({ handleReadBtn, subjectName, bookTitle, publisher, edi
 				<View style={styles.btnView}> 
 					<CustomButton 
 						btnText="Read"
-						onPress={handleReadBtn}
+						onPress={()=> navigation.navigate("PdfReader")}
 					/>
 				</View>
 			</View>

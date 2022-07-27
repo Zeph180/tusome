@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Text, StyleSheet, View, ScrollView } from "react-native";
 import AboutUsSvg from "../../assets/vectors/AboutUsSvg";
 import BooksSvg from "../../assets/vectors/BooksSvg";
@@ -11,6 +11,7 @@ import Card from "../constants/Card";
 import Header from "../constants/Header";
 import RoundedButton from "../constants/RoundedButton";
 import RegistrationContainer from "../containers/RegistrationContainer";
+import * as SecureStore from "expo-secure-store";
 
 // import PropTypes from "prop-types";
 
@@ -35,13 +36,20 @@ export default function HomeScreen({ navigation }) {
 		navigation.navigate("About");
 	};
 	const handleLogout = () => {
-		navigation.navigate("SignIn");
+		const logout = async () => {
+			await SecureStore.deleteItemAsync("userToken");
+		};
+		logout();
 	};
+
 	const handleChangePasswordNav = () => {
 		navigation.navigate("Change Password");
 	};
 	const handleQuizNav = () => {
 		navigation.navigate("Quiz");
+	};
+	const handleReadBook = () => {
+		navigation.navigate("PdfReader");
 	};
 
 	return (
@@ -73,6 +81,7 @@ export default function HomeScreen({ navigation }) {
 					<Card svg={<AboutUsSvg width={50} height={50}/>} cardTitle="About us" onPress={handleAboutNav}/>
 					<Card svg={<PasswordSvg width={50} height={50}/>} cardTitle="Change password" onPress={handleChangePasswordNav}/>
 					<Card cardTitle="Logout" svg={<LogoutSvg width={40} height={40} />} onPress={handleLogout}/>
+					<Card cardTitle="Reader" svg={<LogoutSvg width={40} height={40} />} onPress={handleReadBook}/>
 				</View>
 			</RegistrationContainer>
 		</ScrollView>

@@ -5,14 +5,25 @@ import { NavigationContainer } from "@react-navigation/native";
 import RootStackNavigator from "./src/navigation/index";
 import AuthenticationNavigator from "./src/navigation/Authentication";
 import GlobalContext, { useGlobalContext } from "./GlobalContext";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
+import { setContext } from "apollo-link-context";
 // import {API_URI} from "react-native-dotenv";
 // exp://192.168.43.176:19000
 const uri = "http://192.168.43.176:4000/api";
+//172.20.5.188:
 const cache = new InMemoryCache();
+const httpLink = createHttpLink({ uri });
+
+const authLink = setContext(async (_, { Headers }) => {
+	return {
+		headers: {
+			authorization: (await SecureStore.getItemAsync("userToken")) || ""
+		}
+	}
+});
 
 const client = new ApolloClient({
-	uri,
+	link: authLink.concat(httpLink),
 	cache,
 	connectToDevTools: true,
 });
@@ -32,9 +43,8 @@ const Navigation = () => {
 			}
 			dispatch({ type: "RESTORE_TOKEN", token: userToken});
 		};
-		//bootsAsync();
+		bootsAsync();
 	}, []);
-	console.log(state.userToken);
 	return (
 		<>
 			{

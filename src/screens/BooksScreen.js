@@ -34,7 +34,7 @@ export default function BooksScreen({navigation}) {
 		console.log(data);
 	}
 
-	const books = user.books;
+	//const books = user.books;
 	
 	const handleGoBack = () => {
 		navigation.goBack();
@@ -53,7 +53,7 @@ export default function BooksScreen({navigation}) {
 			}
 		>
 			<ScrollView>
-				<BooksList books={data.books}/>
+				<BooksList navigation={navigation} books={data.books}/>
 			</ScrollView>
 		</RegistrationContainer>
 	);

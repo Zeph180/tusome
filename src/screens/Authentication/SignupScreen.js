@@ -8,11 +8,15 @@ import Header from "../../constants/Header";
 import CustomButton from "../../constants/CustomButton";
 import PropTypes from "prop-types";
 import { gql, useMutation } from "@apollo/client";
+import * as SecureStore from "expo-secure-store";
 //import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const SIGN_UP = gql`
-	mutation signup($email: String!, $contact: String!, $password: String!){
- 	 signUp(email: $email, contact: $contact, password: $password)
+	mutation signup($email: String!, $contact: String!, $password: String!) {
+		signUp(email: $email, contact: $contact, password: $password) {
+			id
+			token
+		}
 	}
 `;
 
@@ -30,16 +34,17 @@ export default function SignupScreen({ navigation }) {
 		}, 
 		onCompleted: data => {
 			console.log("from Signup: ",data.signUp);
+			let userId;
+			async () => {
+				userId = await SecureStore.setItemAsync("userId", data.id);
+			};
+			console.log("userid: ",userId);
 		}
 	});
 
-	if (loading) {
-		return <Text>Loading......</Text>; 
-	}
-
 	if (error) {
 		console.error(error);
-		return <Text>Error................</Text>;
+		console.log(error);
 	}
 
 	const handleSignUp = () => {

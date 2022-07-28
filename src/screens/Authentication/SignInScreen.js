@@ -32,7 +32,7 @@ export default function SignInScreen({ navigation }) {
 		},
 		onCompleted: data => {
 			alert(data);
-			storeToken(data.signIn);
+			storeToken(data.token);
 			console.log(data.signIn);
 		}
 	});

@@ -19,7 +19,6 @@ export default function CustomInput({ type, name, placeholder, isRequired, onCha
 						value={value}
 						isRequired={isRequired}
 						type={type}
-						
 					/>
 				</View>
 			</View>

@@ -8,6 +8,7 @@ import CustomButton from "../../constants/CustomButton";
 import Footer from "../../constants/Footer";
 import GlobalContext, { useGlobalContext } from "../../../GlobalContext";
 import { gql, useMutation } from "@apollo/client";
+import * as SecureStore from "expo-secure-store";
 
 const SIGNIN_USER = gql`
 	mutation signin($email: String!, $password: String!){
@@ -15,6 +16,9 @@ const SIGNIN_USER = gql`
 	}
 `;
 
+export const storeToken = token => {
+	SecureStore.setItemAsync("userToken", token);
+};
 
 export default function SignInScreen({ navigation }) {
 	const { authContext } = useGlobalContext();
@@ -28,16 +32,16 @@ export default function SignInScreen({ navigation }) {
 		},
 		onCompleted: data => {
 			alert(data);
-			console.log(data);
+			storeToken(data.signIn);
+			console.log("data.signin: ",data);
 		}
 	});
 	//const signIn = authContext.signIn;
 	if (loading) {alert("loading user");}
 
-
 	const handleSignIn = () => {
 		//signIn({ email, password});
-		signin();
+		signin();		
 		alert(email, password);
 	};
 

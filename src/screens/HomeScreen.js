@@ -11,6 +11,7 @@ import Card from "../constants/Card";
 import Header from "../constants/Header";
 import RoundedButton from "../constants/RoundedButton";
 import RegistrationContainer from "../containers/RegistrationContainer";
+import * as SecureStore from "expo-secure-store";
 
 // import PropTypes from "prop-types";
 
@@ -35,13 +36,20 @@ export default function HomeScreen({ navigation }) {
 		navigation.navigate("About");
 	};
 	const handleLogout = () => {
-		navigation.navigate("SignIn");
+		const logout = async () => {
+			await SecureStore.deleteItemAsync("userToken");
+		};
+		logout();
 	};
+
 	const handleChangePasswordNav = () => {
 		navigation.navigate("Change Password");
 	};
 	const handleQuizNav = () => {
 		navigation.navigate("Quiz");
+	};
+	const handleReadBook = () => {
+		navigation.navigate("PdfReader");
 	};
 
 	return (
@@ -80,7 +88,8 @@ export default function HomeScreen({ navigation }) {
 	);
 }
 
-// HomeScreen.propTypes = {
+//  HomeScreen.propTypes = {
+// 	navigation: propTypes.ob
 // };
 
 const styles = StyleSheet.create({

@@ -32,7 +32,7 @@ const Navigation = () => {
 			}
 			dispatch({ type: "RESTORE_TOKEN", token: userToken});
 		};
-		//bootsAsync();
+		bootsAsync();
 	}, []);
 	console.log(state.userToken);
 	return (

@@ -1,38 +1,21 @@
 import React, { useState } from "react";
 import { View, Text, Pressable } from "react-native";
-import CustomButton from "../../constants/CustomButton";
-import DropDownBtn from "../../constants/DropDownBtn";
 import Header from "../../constants/Header";
-import RadioButton from "../../constants/RadioButton";
 import RegistrationContainer from "../../containers/RegistrationContainer";
+import DropDownPicker from "react-native-dropdown-picker";
 
 export default function SecondRegistrationScreen({navigation}) {
-	const [isActive, setIsActive] = useState(false);
-	const [showClasses, setShowClasses] = useState();
-	
-	//user class is gotten from options
-
-	const data = [
-		{value: "P1"},
-		{value: "P2"},
-		{value: "P3"},
-		{value: "P4"},
-		{value: "P5"}
-	];
-
-	const datam = [
-		{value: "S1"},
-		{value: "S2"},
-		{value: "S3"},
-		{value: "S4"},
-	];
-
-
-	const grades = [
-		{value: "Primary"},
-		{value: "O-level"},
-		{value: "A-level"}
-	];
+	const [open, setOpen] = useState(false);
+	const [value, setValue] = useState(null);
+	const [items, setItems] = useState([
+		{label: "Primary one", value: "Primary one"},
+		{label: "Primary two", value: "Primary two"},
+		{label: "Primary three", value: "Primary three"},
+		{label: "Primary four", value: "Primary four"},
+		{label: "Primary five", value: "Primary five"},
+		{label: "Primary six", value: "Primary six"},
+		{label: "Primary seven", value: "Primary seven"},
+	]);
 
 	const handleNextPress = () => {
 		navigation.navigate("Home");
@@ -48,46 +31,18 @@ export default function SecondRegistrationScreen({navigation}) {
 				/>
 			}
 		>
-			<View>
-				<View style={{alignItems: "center",}}>
-					<Text style={{fontSize: 20 }}> Select your class </Text>		
-				</View>
-				
-				<View>
-					<DropDownBtn 
-						buttonText="Primary"
-						data={data}
-						isActive={isActive}
-						onPress={()=>{
-							setIsActive(!isActive);
-						}}
-					/>
 
-					<DropDownBtn
-						buttonText="O-Level"
-						data={datam}
-						isActive={isActive}
-						onPress={()=>{
-							setIsActive(!isActive);
-						}}
-					/>
+			<DropDownPicker 
+				style={{ width: "95%", marginHorizontal: 10 }}
+				open={open}
+				items={items}
+				value={value}
+				setOpen={setOpen}
+				setValue={setValue}
+				setItems={setItems}
+				placeholder="Select your class"
+			/>
 
-					<DropDownBtn 
-						buttonText="A-Level"
-						data={data}
-						isActive={isActive}
-						onPress={()=>{
-							setIsActive(!isActive);
-						}}
-					/>
-				</View>
-			</View>
-			<View style= {{alignItems: "center", marginTop: 20}}>
-				<CustomButton 
-					btnText="Submit"
-					onPress={handleNextPress}
-				/>
-			</View>
 		</RegistrationContainer>
 	);
 }

@@ -45,6 +45,7 @@ export default function ProfileScreen({ navigation }) {
 		<RegistrationContainer
 			header={
 				<ProfileHeader 
+					showRightBtn={true}
 					screenName="My Profile"
 					btnAction={isLeftBtnClicked ? "Done" : "Edit"}
 					leftBtnPress={handleGoBack}

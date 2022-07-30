@@ -14,12 +14,13 @@ const GET_BOOKS = gql`
 			title
 			author
 			edition
+			bookLink
 		}
 	}
 `;
 
 export default function BooksScreen({navigation}) {
-	const { user } = useGlobalContext();
+	//const { user } = useGlobalContext();
 	const { data, loading, error } = useQuery(GET_BOOKS);
 
 	if (loading) {
@@ -28,7 +29,7 @@ export default function BooksScreen({navigation}) {
 
 	if (error) {
 		console.error(error);
-		return <Text>Error................</Text>;
+		return <Text>Error loading books...</Text>;
 	}
 	if (data) {
 		console.log(data);
@@ -53,7 +54,7 @@ export default function BooksScreen({navigation}) {
 			}
 		>
 			<ScrollView>
-				<BooksList navigation={navigation} books={data.books}/>
+				<BooksList books={data.books}/>
 			</ScrollView>
 		</RegistrationContainer>
 	);

@@ -9,17 +9,21 @@ import CustomButton from "../../constants/CustomButton";
 import PropTypes from "prop-types";
 import { gql, useMutation } from "@apollo/client";
 import * as SecureStore from "expo-secure-store";
+import { storeToken } from "./SignInScreen";
 //import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const SIGN_UP = gql`
-	mutation signup($email: String!, $contact: String!, $password: String!) {
-		signUp(email: $email, contact: $contact, password: $password) {
-			id
-			token
-		}
+	mutation signup($email: String!, $contact: String!, $password: String!){
+ 	 signUp(email: $email, contact: $contact, password: $password) {
+		id
+		token
+	 }
 	}
 `;
 
+export const storeUserId = id => {
+	SecureStore.setItemAsync("userId", id);
+};
 export default function SignupScreen({ navigation }) {
 	const [contact, setContact] = useState();
 	const [email, setEmail] = useState();
@@ -33,24 +37,29 @@ export default function SignupScreen({ navigation }) {
 			password: password
 		}, 
 		onCompleted: data => {
+			console.log("data:",data);
+			storeUserId(data.signUp.id);
+			storeToken(data.signUp.token);
+			console.log(data.token);
 			console.log("from Signup: ",data.signUp);
-			let userId;
-			async () => {
-				userId = await SecureStore.setItemAsync("userId", data.id);
-			};
-			console.log("userid: ",userId);
+			navigation.navigate("FirstRegistration");
 		}
 	});
+
+	if (loading) {
+		return <Text>Loading......</Text>; 
+	}
 
 	if (error) {
 		console.error(error);
 		console.log(error);
+		return <Text>Error................</Text>;
 	}
 
 	const handleSignUp = () => {
 		signup();
 		// console.log(phoneNumber, email, password);
-		navigation.navigate("FirstRegistration", );
+		//navigation.navigate("FirstRegistration", );
 	};
 
 	const handleSignIn = () => {

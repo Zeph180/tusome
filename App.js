@@ -30,21 +30,24 @@ const client = new ApolloClient({
 
 const Navigation = () => {
 	const { state, dispatch } = useGlobalContext();
+	let userToken;
 	useEffect(() => {
 		//fetching token from storage
 		const bootsAsync = async ()=> {
-			let userToken;
+			let userId;
 			try {
 				//checking for token from user device storage
 				userToken = await SecureStore.getItemAsync("userToken");
-				console.log("2: ",userToken);
+				console.log("userToken ",userToken);
+				userId = await SecureStore.getItemAsync("userId");
+				console.log("userId: ", userId);
 			} catch {
 				//Restoring token failed
 			}
 			dispatch({ type: "RESTORE_TOKEN", token: userToken});
 		};
 		bootsAsync();
-	}, []);
+	}, [userToken]);
 	return (
 		<>
 			{

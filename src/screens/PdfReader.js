@@ -1,12 +1,12 @@
 import React from "react";
 import WebView from "react-native-webview";
 
-export default function PdfReader() {
+export default function PdfReader({ route }) {
+	const { uri } = route.params
 	return (
 		<WebView 
-			source={{ uri: "https://www.tutorialspoint.com/angles_lines_and_polygons/index.htm" }}
+			source={{ uri: uri }}
 			// originWhitelist
-			style={{ marginTop: 20 }}
 		/>
 	);
 }

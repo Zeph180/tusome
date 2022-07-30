@@ -32,18 +32,16 @@ export default function SignInScreen({ navigation }) {
 		},
 		onCompleted: data => {
 			alert(data);
-			storeToken(data.token);
-			console.log(data.signIn);
+			storeToken(data.signIn);
+			console.log("data.signin: ",data);
 		}
 	});
 	//const signIn = authContext.signIn;
 	if (loading) {alert("loading user");}
 
-
 	const handleSignIn = () => {
 		//signIn({ email, password});
-		signin();
-		
+		signin();		
 		alert(email, password);
 	};
 

@@ -81,7 +81,6 @@ export default function HomeScreen({ navigation }) {
 					<Card svg={<AboutUsSvg width={50} height={50}/>} cardTitle="About us" onPress={handleAboutNav}/>
 					<Card svg={<PasswordSvg width={50} height={50}/>} cardTitle="Change password" onPress={handleChangePasswordNav}/>
 					<Card cardTitle="Logout" svg={<LogoutSvg width={40} height={40} />} onPress={handleLogout}/>
-					<Card cardTitle="Reader" svg={<LogoutSvg width={40} height={40} />} onPress={handleReadBook}/>
 				</View>
 			</RegistrationContainer>
 		</ScrollView>

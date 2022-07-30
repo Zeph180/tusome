@@ -4,10 +4,11 @@ import { DataTable } from "react-native-paper";
 import { useGlobalContext } from "../../GlobalContext";
 import ProfileHeader from "../constants/ProfileHeader";
 import RegistrationContainer from "../containers/RegistrationContainer";
+import SchoolToolsSvg from "../../assets/vectors/SchoolToolsSvg";
 
 const windowWidth = Dimensions.get("window").width;
-const SubjectsTable = ({ subjects }) => {
 
+const SubjectsTable = ({ subjects }) => {
 	return (
 		<DataTable style={styles.container}>
 			<DataTable.Header style={styles.tableHeader}>
@@ -37,9 +38,9 @@ const SubjectsTable = ({ subjects }) => {
 export default function SubjectsScreen({ navigation }) {
 	const { user } = useGlobalContext();
 
-    const handleGoBack = () => {
-        navigation.goBack();
-    }
+	const handleGoBack = () => {
+		navigation.goBack();
+	};
 	return (
 		<RegistrationContainer
 			header={
@@ -51,6 +52,9 @@ export default function SubjectsScreen({ navigation }) {
 		>
 			<View>
 				<SubjectsTable subjects={user.subjects}/>
+			</View>
+			<View style={{marginTop: "48%"}}>
+				<SchoolToolsSvg />
 			</View>
 		</RegistrationContainer>
 	);

@@ -12,6 +12,7 @@ import AboutUsScreen from "../screens/AboutUsScreen";
 import SignInScreen from "../screens/Authentication/SignInScreen";
 import ChangePasswordScreen from "../screens/Authentication/ChangePasswordScreen";
 import QuizScreen from "../screens/QuizScreen";
+import PdfReader from "../screens/PdfReader";
 // import ReadingScreen from "../screens/ReadingScreen";
 
 const Stack = createNativeStackNavigator();
@@ -103,13 +104,13 @@ export default function RootStackNavigator() {
 				name="Quiz"
 				component={QuizScreen}
 			/>
-			{/* <Stack.Screen 
+			<Stack.Screen 
 				options={()=>({
 					headerShown: false
 				})}
-				name="Book Reader"
-				component={ReadingScreen}
-			/> */}
+				name="PdfReader"
+				component={PdfReader}
+			/>
 		</Stack.Navigator>
 	);
 }

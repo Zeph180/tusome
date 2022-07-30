@@ -3,7 +3,7 @@ import React from "react";
 import SignInScreen from "../screens/Authentication/SignInScreen";
 import SignupScreen from "../screens/Authentication/SignupScreen";
 import FirstRegistrationScreen from "../screens/Authentication/FirstRegistrationScreen";
-import SecondRegistrationScreen from "../screens/Authentication/SecondRegistrationScreen";
+//import SecondRegistrationScreen from "../screens/Authentication/SecondRegistrationScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,13 +32,13 @@ export default function AuthenticationNavigator() {
 				name="FirstRegistration"
 				component={FirstRegistrationScreen}
 			/>
-			<Stack.Screen
+			{/* <Stack.Screen
 				options={() => ({
 					headerShown: false
 				})}
 				name="SecondRegistration"
 				component={SecondRegistrationScreen}
-			/>
+			/> */}
 		</Stack.Navigator>
 	);
 }

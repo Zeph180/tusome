@@ -4,23 +4,24 @@ import PropTypes from "prop-types";
 import { AntDesign } from "@expo/vector-icons";
 import RoundedButton from "./RoundedButton";
 
-export default function ProfileHeader({screenName, btnAction, leftBtnPress, rightBtnPress}) {
-	return (
-		<View style={styles.container}>
-			<RoundedButton styles={styles.leftBtn} onPress={leftBtnPress}>
-				<AntDesign 
-					name="left" 
-					size={28} 
-					color="white" 
-				/>
-				<Text style={styles.btnText}>{screenName}</Text>
-			</RoundedButton>
-
-			<RoundedButton style={styles.rightBtn} onPress={rightBtnPress}>
-				<Text style={styles.btnText}>{btnAction}</Text>
-			</RoundedButton>
-		</View>
-	);
+export default function ProfileHeader({showRightBtn, screenName, btnAction, leftBtnPress, rightBtnPress}) {	return (
+	<View style={styles.container}>
+		<RoundedButton styles={styles.leftBtn} onPress={leftBtnPress}>
+			<AntDesign 
+				name="left" 
+				size={28} 
+				color="white" 
+			/>
+			<Text style={styles.btnText}>{screenName}</Text>
+		</RoundedButton>
+		{
+			showRightBtn && 
+				<RoundedButton style={styles.rightBtn} onPress={rightBtnPress}>
+					<Text style={styles.btnText}>{btnAction}</Text>
+				</RoundedButton>
+		}
+	</View>
+);
 }
 
 ProfileHeader.propTypes = {
@@ -28,6 +29,7 @@ ProfileHeader.propTypes = {
 	btnAction: PropTypes.string,
 	leftBtnPress: PropTypes.func,
 	rightBtnPress: PropTypes.func,
+	showRightBtn: PropTypes.bool
 };
 
 const styles = StyleSheet.create({

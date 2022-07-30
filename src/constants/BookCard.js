@@ -2,8 +2,10 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
 import CustomButton from "./CustomButton";
+import { useNavigation } from "@react-navigation/native";
 
-export function BookCard({ handleReadBtn, subjectName, bookTitle, publisher, edition, author }) {
+export function BookCard({ subjectName, bookTitle, publisher, edition, author, uri }) {
+	const navigation = useNavigation();
 	return (
 		<View style={styles.container}>
 			<View style={{ marginLeft: 10 }}>
@@ -19,7 +21,7 @@ export function BookCard({ handleReadBtn, subjectName, bookTitle, publisher, edi
 				<View style={styles.btnView}> 
 					<CustomButton 
 						btnText="Read"
-						onPress={handleReadBtn}
+						onPress={()=> navigation.navigate("PdfReader", {uri})}
 					/>
 				</View>
 			</View>
@@ -39,6 +41,7 @@ export default function BooksList({ books }) {
 					edition={book.edition}
 					author={book.author}
 					key={i}
+					uri={book.bookLink}
 				/>)
 			}
 		</View>
@@ -59,7 +62,8 @@ BookCard.propTypes = {
 	bookTitle: PropTypes.string,
 	publisher: PropTypes.string,
 	edition: PropTypes.string,
-	author: PropTypes.string
+	author: PropTypes.string,
+	uri: PropTypes.string
 };
 
 const styles = StyleSheet.create({

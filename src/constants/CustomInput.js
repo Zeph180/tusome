@@ -2,7 +2,7 @@ import React from "react";
 import { TextInput, StyleSheet, Dimensions, View} from "react-native";
 import PropTypes from "prop-types";
 
-const Width = Dimensions.get("screen").width;
+export const Width = Dimensions.get("screen").width;
 
 export default function CustomInput({ type, name, placeholder, isRequired, onChangeText, value, icon, keyboardType,secureTextEntry }) {
 	return (
@@ -19,7 +19,6 @@ export default function CustomInput({ type, name, placeholder, isRequired, onCha
 						value={value}
 						isRequired={isRequired}
 						type={type}
-						
 					/>
 				</View>
 			</View>
